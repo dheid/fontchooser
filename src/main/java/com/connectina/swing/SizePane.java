@@ -1,5 +1,6 @@
 package com.connectina.swing;
 
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -7,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -19,12 +21,74 @@ public class SizePane extends JPanel {
 
     private JList<Integer> sizeList = new JList<>();
     private JSpinner sizeSpinner = new JSpinner();
-    private final DefaultListModel<Integer> sizeListModel;
+    private final DefaultListModel<Integer> sizeListModel = new DefaultListModel<>();
 
     public SizePane() {
         setLayout(new GridBagLayout());
 
-        sizeListModel = new DefaultListModel<>();
+        initSizeListModel();
+        initSizeList();
+        initSizeSpinner();
+        addSizeSpinner();
+        addSizeScrollPane();
+    }
+
+    private void addSizeScrollPane() {
+        JScrollPane sizeScrollPane = new JScrollPane();
+        sizeScrollPane.setMinimumSize(new Dimension(50, 120));
+        sizeScrollPane.setPreferredSize(new Dimension(60, 150));
+        sizeScrollPane.setViewportView(sizeList);
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+        gridBagConstraints.weighty = 1.0;
+        add(sizeScrollPane, gridBagConstraints);
+    }
+
+    private void addSizeSpinner() {
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new Insets(0, 0, 6, 0);
+        add(sizeSpinner, gridBagConstraints);
+    }
+
+    private void initSizeSpinner() {
+        int spinnerHeight = (int) sizeSpinner.getPreferredSize().getHeight();
+        sizeSpinner.setPreferredSize(new Dimension(60, spinnerHeight));
+        sizeSpinner.setModel(new SpinnerNumberModel(DEFAULT_FONT_SIZE, 6, 128, 1));
+        sizeSpinner.addChangeListener(event -> {
+
+            Integer value = (Integer) sizeSpinner.getValue();
+            int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(value);
+            if (index > -1) {
+                sizeList.setSelectedValue(value, true);
+            } else {
+                sizeList.clearSelection();
+            }
+
+        });
+    }
+
+    private void initSizeList() {
+        sizeList.setModel(sizeListModel);
+        sizeList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        sizeList.addListSelectionListener(event -> {
+            if (!event.getValueIsAdjusting()) {
+                int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(sizeList.getSelectedValue());
+                if (index > -1) {
+                    sizeSpinner.setValue(sizeList.getSelectedValue());
+                }
+            }
+        });
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) sizeList.getCellRenderer();
+        renderer.setHorizontalAlignment(SwingConstants.RIGHT);
+    }
+
+    private void initSizeListModel() {
         int size = 6;
         int step = 1;
         int ceil = 14;
@@ -36,52 +100,6 @@ public class SizePane extends JPanel {
             }
             size += step;
         } while (size <= 128);
-
-        sizeList.setModel(sizeListModel);
-        sizeList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        sizeSpinner.addChangeListener(event -> {
-
-                Integer value = (Integer) sizeSpinner.getValue();
-                int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(value);
-                if (index > -1) {
-                    sizeList.setSelectedValue(value, true);
-                } else {
-                    sizeList.clearSelection();
-                }
-
-        });
-
-        sizeList.addListSelectionListener(event -> {
-            if (!event.getValueIsAdjusting()) {
-                int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(sizeList.getSelectedValue());
-                if (index > -1) {
-                    sizeSpinner.setValue(sizeList.getSelectedValue());
-                }
-            }
-        });
-
-        int spinnerHeight = (int) sizeSpinner.getPreferredSize().getHeight();
-        sizeSpinner.setPreferredSize(new Dimension(60, spinnerHeight));
-        sizeSpinner.setModel(new SpinnerNumberModel(DEFAULT_FONT_SIZE, 6, 128, 1));
-        GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
-        gridBagConstraints1.gridy = 0;
-        gridBagConstraints1.fill = GridBagConstraints.VERTICAL;
-        gridBagConstraints1.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints1.weighty = 1.0;
-        gridBagConstraints1.insets = new Insets(0, 0, 6, 0);
-        add(sizeSpinner, gridBagConstraints1);
-
-        JScrollPane sizeScrollPane = new JScrollPane();
-        sizeScrollPane.setMinimumSize(new Dimension(50, 120));
-        sizeScrollPane.setPreferredSize(new Dimension(60, 150));
-        sizeScrollPane.setViewportView(sizeList);
-        GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
-        gridBagConstraints2.gridy = 1;
-        gridBagConstraints2.fill = GridBagConstraints.VERTICAL;
-        gridBagConstraints2.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints2.weighty = 1.0;
-        add(sizeScrollPane, gridBagConstraints2);
     }
 
     public void addListSelectionListener(ListSelectionListener listener) {
