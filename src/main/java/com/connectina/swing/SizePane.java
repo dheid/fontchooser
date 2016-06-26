@@ -51,7 +51,6 @@ public class SizePane extends JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new Insets(0, 0, 6, 0);
         add(sizeSpinner, gridBagConstraints);
     }
