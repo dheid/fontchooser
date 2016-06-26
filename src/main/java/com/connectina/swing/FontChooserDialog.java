@@ -23,7 +23,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import java.awt.BorderLayout;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
@@ -147,8 +146,6 @@ public class FontChooserDialog extends JDialog {
         JPanel chooserPanel = new JPanel();
         chooserPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 0, 11));
         chooserPanel.setLayout(new BorderLayout(0, 12));
-        JSeparator chooserSeparator = new JSeparator();
-        chooserPanel.add(chooserSeparator, BorderLayout.PAGE_END);
         chooserPanel.add(chooser, BorderLayout.CENTER);
 
         JPanel basePanel = new JPanel();

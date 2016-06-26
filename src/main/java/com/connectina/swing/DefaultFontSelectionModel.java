@@ -23,10 +23,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.EventListenerList;
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * A generic implementation of {@code FontSelectionModel}.
@@ -50,8 +46,6 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
 
     private Font selectedFont;
 
-    private final List<String> availableFontNames = new ArrayList<>(200);
-
     /**
      * Creates a {@code DefaultFontSelectionModel} with the
      * current font set to {@code font}, which should be
@@ -63,9 +57,6 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
      */
     public DefaultFontSelectionModel(Font font) {
         selectedFont = font;
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String[] families = ge.getAvailableFontFamilyNames();
-        Collections.addAll(availableFontNames, families);
     }
 
     /**
@@ -96,21 +87,6 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
             selectedFont = font;
             fireStateChanged();
         }
-    }
-
-    /**
-     * Gets the available font names.
-     * Returns a list containing the names of all font families in this
-     * {@code GraphicsEnvironment} localized for the default locale,
-     * as returned by {@code Locale.getDefault()}.
-     *
-     * @return a list of String containing font family names localized for the
-     * default locale, or a suitable alternative name if no name exists
-     * for this locale
-     */
-    @Override
-    public List<String> getAvailableFontNames() {
-        return Collections.unmodifiableList(availableFontNames);
     }
 
     /**

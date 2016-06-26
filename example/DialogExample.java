@@ -9,7 +9,7 @@ public class DialogExample {
 
     public static void main(String... args) throws InvocationTargetException, InterruptedException {
         EventQueue.invokeAndWait(() -> {
-            FontChooserDialog dialog = new FontChooserDialog((Frame) null, true);
+            FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
             dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
             dialog.setVisible(true);
             if (!dialog.isCancelSelected()) {

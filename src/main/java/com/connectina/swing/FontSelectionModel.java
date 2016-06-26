@@ -21,7 +21,6 @@ package com.connectina.swing;
 
 import javax.swing.event.ChangeListener;
 import java.awt.Font;
-import java.util.List;
 
 /**
  * A model that supports selecting a {@code Font}.
@@ -52,18 +51,6 @@ public interface FontSelectionModel {
      * @see #addChangeListener
      */
     void setSelectedFont(Font font);
-
-    /**
-     * Gets the available font names.
-     * Returns a list containing the names of all font families in this
-     * {@code GraphicsEnvironment} localized for the default locale,
-     * as returned by {@code Locale.getDefault()}.
-     *
-     * @return a list of String containing font family names localized for the
-     * default locale, or a suitable alternative name if no name exists
-     * for this locale
-     */
-    List<String> getAvailableFontNames();
 
     /**
      * Adds {@code listener} as a listener to changes in the model.

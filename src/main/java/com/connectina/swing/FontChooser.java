@@ -19,24 +19,13 @@
  */
 package com.connectina.swing;
 
-import javax.swing.BorderFactory;
-import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.ListSelectionModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -55,20 +44,18 @@ public class FontChooser extends JPanel {
     private static final String SELECTION_MODEL_PROPERTY = "selectionModel";
 
     private FontSelectionModel selectionModel;
-    private JList<String> familyList = new JList<>();
-    private JLabel previewAreaLabel = new JLabel();
-    private JList<Integer> sizeList = new JList<>();
-    private JSpinner sizeSpinner = new JSpinner();
-    private JList<String> styleList = new JList<>();
+
     private JPanel fontPanel = new JPanel();
     private JLabel familyLabel = new JLabel();
     private JLabel styleLabel = new JLabel();
     private JLabel sizeLabel = new JLabel();
-    private JScrollPane familyScrollPane = new JScrollPane();
+    private FamilyPane familyPane = new FamilyPane();
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
     private JLabel previewLabel = new JLabel();
     private JPanel previewPanel = new JPanel();
-    private JPanel previewAreaPanel = new JPanel();
+    private PreviewPane previewPane = new PreviewPane();
+    private StylePane stylePane = new StylePane();
+    private SizePane sizePane = new SizePane();
 
     /**
      * Creates a FontChooser pane with an initial default Font
@@ -96,31 +83,13 @@ public class FontChooser extends JPanel {
     public FontChooser(FontSelectionModel model) {
         selectionModel = model;
         setLayout(new BorderLayout());
-        initComponents();
-        initPanel();
+        addComponents();
+        initPanes();
+
+        previewPane.setPreviewFont(selectionModel.getSelectedFont());
     }
 
-    private static String getFontStyleName(int index, ResourceBundle bundle) {
-        String result;
-        switch (index) {
-            case 0:
-                result = bundle.getString("style.plain");
-                break;
-            case 1:
-                result = bundle.getString("style.bold");
-                break;
-            case 2:
-                result = bundle.getString("style.italic");
-                break;
-            case 3:
-                result = bundle.getString("style.bolditalic");
-                break;
-            default:
-                result = bundle.getString("style.plain");
-        }
 
-        return result;
-    }
 
     /**
      * Gets the current Font value from the FontChooser.
@@ -181,94 +150,39 @@ public class FontChooser extends JPanel {
         selectionModel.removeChangeListener(l);
     }
 
-    private void initPanel() {
-        initFontFamilyNames();
-        initFontStyles();
-        initFontSizes();
-        initPreviewAreaLabel();
+    private void initPanes() {
+        familyPane.setSelectedFamily(selectionModel.getSelectedFont().getName());
+        familyPane.addListSelectionListener(new FamilyListSelectionListener());
+
+        stylePane.setSelectedStyle(Style.of(selectionModel.getSelectedFont()));
+        stylePane.addListSelectionListener(new StyleListSelectionListener());
+
+        sizePane.addListSelectionListener(new SizeListSelectionListener());
+        sizePane.setSelectedSize(selectionModel.getSelectedFont().getSize());
     }
 
-    private void initPreviewAreaLabel() {
-        previewAreaLabel.setFont(selectionModel.getSelectedFont());
-        previewAreaLabel.setText(resourceBundle.getString("font.preview.text"));
-        previewAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    }
-
-    private void initFontSizes() {
-        DefaultListModel<Integer> sizeListModel = new DefaultListModel<>();
-        int size = 6;
-        int step = 1;
-        int ceil = 14;
-        do {
-            sizeListModel.addElement(size);
-            if (size == ceil) {
-                ceil += ceil;
-                step += step;
-            }
-            size += step;
-        } while (size <= 128);
-
-        sizeList.setModel(sizeListModel);
-        sizeList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        Integer selectedSize = selectionModel.getSelectedFont().getSize();
-        if (sizeListModel.contains(selectedSize)) {
-            sizeList.setSelectedValue(selectedSize, true);
-        }
-        sizeList.addListSelectionListener(new SizeListSelectionListener());
-        sizeSpinner.addChangeListener(new SizeSpinnerListener());
-        sizeSpinner.setValue(selectedSize);
-    }
-
-    private void initFontStyles() {
-        DefaultListModel<String> styleListModel = new DefaultListModel<>();
-        styleListModel.addElement(getFontStyleName(Font.PLAIN, resourceBundle));
-        styleListModel.addElement(getFontStyleName(Font.BOLD, resourceBundle));
-        styleListModel.addElement(getFontStyleName(Font.ITALIC, resourceBundle));
-        styleListModel.addElement(getFontStyleName(Font.BOLD + Font.ITALIC, resourceBundle));
-        styleList.setModel(styleListModel);
-        styleList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        styleList.setSelectedIndex(selectionModel.getSelectedFont().getStyle());
-        styleList.addListSelectionListener(new StyleListSelectionListener());
-    }
-
-    private void initFontFamilyNames() {
-        DefaultListModel<String> familyListModel = new DefaultListModel<>();
-        selectionModel.getAvailableFontNames().forEach(familyListModel::addElement);
-        familyList.setModel(familyListModel);
-        familyList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        familyList.setSelectedValue(selectionModel.getSelectedFont().getName(), true);
-        familyList.addListSelectionListener(new FamilyListSelectionListener());
-    }
-
-    private void initComponents() {
-        initFontPanel();
-        initFamilyLabel();
-        initStyleLabel();
-        initSizeLabel();
-        initFamilyScrollPane();
-        initStyleScrollPane();
-        initSizeSpinner();
-        initSizeScrollPane();
-        initPreviewLabel();
-        initPreviewPanel();
+    private void addComponents() {
+        addFontPanel();
+        addFamilyLabel();
+        addStyleLabel();
+        addSizeLabel();
+        addFamilyPane();
+        addStylePane();
+        addSizePane();
+        addPreviewLabel();
+        addPreviewPane();
         initPreviewAreaPanel();
     }
 
     private void initPreviewAreaPanel() {
-        previewAreaPanel.setBackground(new Color(255, 255, 255));
-        previewAreaPanel.setBorder(BorderFactory.createEtchedBorder());
-        previewAreaPanel.setPreferredSize(new Dimension(200, 80));
-        previewAreaPanel.setLayout(new BorderLayout());
-        previewAreaPanel.add(previewAreaLabel, BorderLayout.CENTER);
-
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        previewPanel.add(previewAreaPanel, gridBagConstraints);
+        previewPanel.add(previewPane, gridBagConstraints);
     }
 
-    private void initPreviewPanel() {
+    private void addPreviewPane() {
         previewPanel.setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
@@ -277,71 +191,44 @@ public class FontChooser extends JPanel {
         add(previewPanel, BorderLayout.PAGE_END);
     }
 
-    private void initPreviewLabel() {
+    private void addPreviewLabel() {
         previewLabel.setDisplayedMnemonic(resourceBundle.getString("font.preview.mnemonic").charAt(0));
         previewLabel.setText(resourceBundle.getString("font.preview"));
     }
 
-    private void initSizeScrollPane() {
-        JScrollPane sizeScrollPane = new JScrollPane();
-        sizeScrollPane.setMinimumSize(new Dimension(50, 120));
-        sizeScrollPane.setPreferredSize(new Dimension(60, 150));
-        sizeScrollPane.setViewportView(sizeList);
-
-        GridBagConstraints gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = GridBagConstraints.VERTICAL;
-        gridBagConstraints.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(0, 0, 11, 0);
-        fontPanel.add(sizeScrollPane, gridBagConstraints);
+    private void addSizePane() {
+        GridBagConstraints gridBagConstraints3 = new GridBagConstraints();
+        gridBagConstraints3.gridy = 1;
+        gridBagConstraints3.fill = GridBagConstraints.VERTICAL;
+        gridBagConstraints3.anchor = GridBagConstraints.LINE_START;
+        gridBagConstraints3.weighty = 1.0;
+        gridBagConstraints3.insets = new Insets(0, 0, 11, 0);
+        fontPanel.add(sizePane, gridBagConstraints3);
     }
 
-    private void initSizeSpinner() {
-        int spinnerHeight = (int) sizeSpinner.getPreferredSize().getHeight();
-        sizeSpinner.setPreferredSize(new Dimension(60, spinnerHeight));
-        sizeSpinner.setModel(new SpinnerNumberModel(DEFAULT_FONT_SIZE, 6, 128, 1));
-        GridBagConstraints gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new Insets(0, 0, 5, 0);
-        fontPanel.add(sizeSpinner, gridBagConstraints);
-    }
-
-    private void initStyleScrollPane() {
-        JScrollPane styleScrollPane = new JScrollPane();
-        styleScrollPane.setMinimumSize(new Dimension(60, 120));
-        styleScrollPane.setPreferredSize(new Dimension(80, 150));
-        styleScrollPane.setViewportView(styleList);
-
+    private void addStylePane() {
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new Insets(0, 0, 11, 11);
-        fontPanel.add(styleScrollPane, gridBagConstraints);
+        fontPanel.add(stylePane, gridBagConstraints);
     }
 
-    private void initFamilyScrollPane() {
-        familyScrollPane.setMinimumSize(new Dimension(80, 50));
-        familyScrollPane.setPreferredSize(new Dimension(240, 150));
-        familyScrollPane.setViewportView(familyList);
+    private void addFamilyPane() {
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new Insets(0, 0, 11, 11);
-        fontPanel.add(familyScrollPane, gridBagConstraints);
+        fontPanel.add(familyPane, gridBagConstraints);
     }
 
-    private void initSizeLabel() {
-        sizeLabel.setLabelFor(sizeList);
+    private void addSizeLabel() {
+        sizeLabel.setLabelFor(sizePane);
         sizeLabel.setDisplayedMnemonic(resourceBundle.getString("font.size.mnemonic").charAt(0));
         sizeLabel.setText(resourceBundle.getString("font.size"));
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
@@ -350,8 +237,8 @@ public class FontChooser extends JPanel {
         fontPanel.add(sizeLabel, gridBagConstraints);
     }
 
-    private void initStyleLabel() {
-        styleLabel.setLabelFor(styleList);
+    private void addStyleLabel() {
+        styleLabel.setLabelFor(stylePane);
         styleLabel.setDisplayedMnemonic(resourceBundle.getString("font.style.mnemonic").charAt(0));
         styleLabel.setText(resourceBundle.getString("font.style"));
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
@@ -360,8 +247,8 @@ public class FontChooser extends JPanel {
         fontPanel.add(styleLabel, gridBagConstraints);
     }
 
-    private void initFamilyLabel() {
-        familyLabel.setLabelFor(familyList);
+    private void addFamilyLabel() {
+        familyLabel.setLabelFor(familyPane);
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new Insets(0, 0, 5, 11);
@@ -370,7 +257,7 @@ public class FontChooser extends JPanel {
         familyLabel.setText(resourceBundle.getString("font.family"));
     }
 
-    private void initFontPanel() {
+    private void addFontPanel() {
         fontPanel.setLayout(new GridBagLayout());
         add(fontPanel, BorderLayout.CENTER);
     }
@@ -380,11 +267,10 @@ public class FontChooser extends JPanel {
         @Override
         public void valueChanged(ListSelectionEvent e) {
             if (!e.getValueIsAdjusting()) {
-                Font sel = new Font(familyList.getSelectedValue(),
-                        styleList.getSelectedIndex(),
-                        Integer.parseInt(sizeSpinner.getValue().toString()));
+                Font sel = new Font(familyPane.getSelectedFamily(), stylePane.getSelectedStyle().ordinal(),
+                        sizePane.getSelectedSize());
                 selectionModel.setSelectedFont(sel);
-                previewAreaLabel.setFont(selectionModel.getSelectedFont());
+                previewPane.setPreviewFont(selectionModel.getSelectedFont());
             }
         }
     }
@@ -395,9 +281,8 @@ public class FontChooser extends JPanel {
         public void valueChanged(ListSelectionEvent e) {
             if (!e.getValueIsAdjusting()) {
                 selectionModel.setSelectedFont(selectionModel.getSelectedFont()
-                        .deriveFont(styleList.getSelectedIndex()));
-
-                previewAreaLabel.setFont(selectionModel.getSelectedFont());
+                        .deriveFont(stylePane.getSelectedStyle().ordinal()));
+                previewPane.setPreviewFont(selectionModel.getSelectedFont());
             }
         }
     }
@@ -407,30 +292,13 @@ public class FontChooser extends JPanel {
         @Override
         public void valueChanged(ListSelectionEvent e) {
             if (!e.getValueIsAdjusting()) {
-                int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(sizeList.getSelectedValue());
-                if (index > -1) {
-                    sizeSpinner.setValue((Integer) sizeList.getSelectedValue());
-                }
-                float newSize = Float.parseFloat(sizeSpinner.getValue().toString());
+                float newSize = sizePane.getSelectedSize();
                 Font newFont = selectionModel.getSelectedFont().deriveFont(newSize);
                 selectionModel.setSelectedFont(newFont);
-
-                previewAreaLabel.setFont(selectionModel.getSelectedFont());
+                previewPane.setPreviewFont(selectionModel.getSelectedFont());
             }
         }
     }
 
-    private class SizeSpinnerListener implements ChangeListener {
 
-        @Override
-        public void stateChanged(ChangeEvent e) {
-            Integer value = (Integer) sizeSpinner.getValue();
-            int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(value);
-            if (index > -1) {
-                sizeList.setSelectedValue(value, true);
-            } else {
-                sizeList.clearSelection();
-            }
-        }
-    }
 }
