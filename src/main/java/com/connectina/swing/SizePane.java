@@ -51,11 +51,12 @@ public class SizePane extends JPanel {
                 }
 
         });
+
         sizeList.addListSelectionListener(event -> {
             if (!event.getValueIsAdjusting()) {
                 int index = ((DefaultListModel<Integer>) sizeList.getModel()).indexOf(sizeList.getSelectedValue());
                 if (index > -1) {
-                    sizeSpinner.setValue((Integer) sizeList.getSelectedValue());
+                    sizeSpinner.setValue(sizeList.getSelectedValue());
                 }
             }
         });

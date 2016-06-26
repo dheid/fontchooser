@@ -170,25 +170,22 @@ public class FontChooser extends JPanel {
         addStylePane();
         addSizePane();
         addPreviewLabel();
-        addPreviewPane();
-        initPreviewAreaPanel();
+        addPreview();
     }
 
-    private void initPreviewAreaPanel() {
-        GridBagConstraints gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        previewPanel.add(previewPane, gridBagConstraints);
-    }
-
-    private void addPreviewPane() {
+    private void addPreview() {
         previewPanel.setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new Insets(0, 0, 5, 0);
         previewPanel.add(previewLabel, gridBagConstraints);
         add(previewPanel, BorderLayout.PAGE_END);
+
+        GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
+        gridBagConstraints2.gridy = 1;
+        gridBagConstraints2.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints2.weightx = 1.0;
+        previewPanel.add(previewPane, gridBagConstraints2);
     }
 
     private void addPreviewLabel() {
