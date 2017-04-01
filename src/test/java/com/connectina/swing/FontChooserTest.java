@@ -49,7 +49,7 @@ public class FontChooserTest {
         assertThat(selectedFont.getName(), is(Font.SANS_SERIF));
         assertThat(selectedFont.getStyle(), is(Font.PLAIN));
         assertThat(selectedFont.getSize(), is(FontChooser.DEFAULT_FONT_SIZE));
-        assertThat(fontChooser.getSelectedStyle(), is(0.0F));
+        assertThat(fontChooser.getSelectedStyle(), is(0));
         assertThat(fontChooser.getSelectedSize(), is(FontChooser.DEFAULT_FONT_SIZE));
         assertThat(fontChooser.getSelectedFamily(), is(Font.SANS_SERIF));
 
