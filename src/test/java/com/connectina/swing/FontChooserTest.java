@@ -12,6 +12,7 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static com.connectina.swing.FontChooser.DEFAULT_FONT_SIZE;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -48,9 +49,9 @@ public class FontChooserTest {
 
         assertThat(selectedFont.getName(), is(Font.SANS_SERIF));
         assertThat(selectedFont.getStyle(), is(Font.PLAIN));
-        assertThat(selectedFont.getSize(), is(FontChooser.DEFAULT_FONT_SIZE));
+        assertThat(selectedFont.getSize(), is(DEFAULT_FONT_SIZE));
         assertThat(fontChooser.getSelectedStyle(), is(0));
-        assertThat(fontChooser.getSelectedSize(), is(FontChooser.DEFAULT_FONT_SIZE));
+        assertThat(fontChooser.getSelectedSize(), is((float)DEFAULT_FONT_SIZE));
         assertThat(fontChooser.getSelectedFamily(), is(Font.SANS_SERIF));
 
     }
