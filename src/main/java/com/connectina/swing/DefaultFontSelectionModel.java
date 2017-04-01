@@ -23,6 +23,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.EventListenerList;
 import java.awt.Font;
+import java.util.Objects;
+
 
 /**
  * A generic implementation of {@code FontSelectionModel}.
@@ -33,17 +35,15 @@ import java.awt.Font;
 public class DefaultFontSelectionModel implements FontSelectionModel {
 
     /**
+     * A list of registered event listeners.
+     */
+    private final EventListenerList listenerList = new EventListenerList();
+    /**
      * Only one {@code ChangeEvent} is needed per model instance
      * since the event's only (read-only) state is the source property.
      * The source of events generated here is always "this".
      */
     private transient ChangeEvent changeEvent;
-
-    /**
-     * A list of registered event listeners.
-     */
-    private final EventListenerList listenerList = new EventListenerList();
-
     private Font selectedFont;
 
     /**
@@ -118,8 +118,7 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
      * array if no listeners have been added
      */
     public ChangeListener[] getChangeListeners() {
-        return (ChangeListener[]) listenerList.getListeners(
-                ChangeListener.class);
+        return listenerList.getListeners(ChangeListener.class);
     }
 
     /**
@@ -129,11 +128,11 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
     private void fireStateChanged() {
         Object[] listeners = listenerList.getListenerList();
         for (int i = listeners.length - 2; i >= 0; i -= 2) {
-            if (listeners[i] == ChangeListener.class) {
+            if (Objects.equals(listeners[i], ChangeListener.class)) {
                 if (changeEvent == null) {
                     changeEvent = new ChangeEvent(this);
                 }
-                ((ChangeListener) listeners[i + 1]).stateChanged(changeEvent);
+                ((ChangeListener)listeners[i + 1]).stateChanged(changeEvent);
             }
         }
     }

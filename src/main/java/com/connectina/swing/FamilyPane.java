@@ -8,9 +8,10 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 
+
 public class FamilyPane extends JScrollPane {
 
-    private JList<String> familyList = new JList<>();
+    private final JList<String> familyList = new JList<>();
 
     public FamilyPane() {
 

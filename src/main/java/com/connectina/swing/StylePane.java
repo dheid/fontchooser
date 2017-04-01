@@ -8,6 +8,7 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
 import java.util.ResourceBundle;
 
+
 public class StylePane extends JScrollPane {
 
     private JList<String> styleList = new JList<>();
@@ -39,9 +40,8 @@ public class StylePane extends JScrollPane {
         styleList.setSelectedIndex(style.ordinal());
     }
 
-    public Style getSelectedStyle() {
-        return Style.values()[styleList.getSelectedIndex()];
+    public int getSelectedStyle() {
+        return Style.values()[styleList.getSelectedIndex()].ordinal();
     }
-
 
 }

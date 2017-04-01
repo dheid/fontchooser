@@ -23,14 +23,17 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ResourceBundle;
+
+import com.connectina.swing.listeners.FamilyListSelectionListener;
+import com.connectina.swing.listeners.SizeListSelectionListener;
+import com.connectina.swing.listeners.StyleListSelectionListener;
+
 
 /**
  * Provides a pane of controls designed to allow a user to
@@ -39,23 +42,25 @@ import java.util.ResourceBundle;
  * @author Christos Bohoris
  * @see Font
  */
-public class FontChooser extends JPanel {
+public class FontChooser extends JPanel implements FontContainer {
+
     public static final int DEFAULT_FONT_SIZE = 12;
+
     private static final String SELECTION_MODEL_PROPERTY = "selectionModel";
 
     private FontSelectionModel selectionModel;
 
-    private JPanel fontPanel = new JPanel();
-    private JLabel familyLabel = new JLabel();
-    private JLabel styleLabel = new JLabel();
-    private JLabel sizeLabel = new JLabel();
-    private FamilyPane familyPane = new FamilyPane();
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
-    private JLabel previewLabel = new JLabel();
-    private JPanel previewPanel = new JPanel();
-    private PreviewPane previewPane = new PreviewPane();
-    private StylePane stylePane = new StylePane();
-    private SizePane sizePane = new SizePane();
+    private final JPanel fontPanel = new JPanel();
+    private final JLabel familyLabel = new JLabel();
+    private final JLabel styleLabel = new JLabel();
+    private final JLabel sizeLabel = new JLabel();
+    private final FamilyPane familyPane = new FamilyPane();
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
+    private final JLabel previewLabel = new JLabel();
+    private final JPanel previewPanel = new JPanel();
+    private final PreviewPane previewPane = new PreviewPane();
+    private final StylePane stylePane = new StylePane();
+    private final SizePane sizePane = new SizePane();
 
     /**
      * Creates a FontChooser pane with an initial default Font
@@ -89,14 +94,13 @@ public class FontChooser extends JPanel {
         previewPane.setPreviewFont(selectionModel.getSelectedFont());
     }
 
-
-
     /**
      * Gets the current Font value from the FontChooser.
      * By default, this delegates to the model.
      *
      * @return the current Font value of the FontChooser
      */
+    @Override
     public Font getSelectedFont() {
         return selectionModel.getSelectedFont();
     }
@@ -108,6 +112,7 @@ public class FontChooser extends JPanel {
      * @param font the font to be set in the font chooser
      * @see JComponent#addPropertyChangeListener
      */
+    @Override
     public void setSelectedFont(Font font) {
         selectionModel.setSelectedFont(font);
     }
@@ -135,29 +140,29 @@ public class FontChooser extends JPanel {
     /**
      * Adds a {@code ChangeListener} to the model.
      *
-     * @param l the {@code ChangeListener} to be added
+     * @param listener the {@code ChangeListener} to be added
      */
-    public void addChangeListener(ChangeListener l) {
-        selectionModel.addChangeListener(l);
+    public void addChangeListener(ChangeListener listener) {
+        selectionModel.addChangeListener(listener);
     }
 
     /**
      * Removes a {@code ChangeListener} from the model.
      *
-     * @param l the {@code ChangeListener} to be removed
+     * @param listener the {@code ChangeListener} to be removed
      */
-    public void removeChangeListener(ChangeListener l) {
-        selectionModel.removeChangeListener(l);
+    public void removeChangeListener(ChangeListener listener) {
+        selectionModel.removeChangeListener(listener);
     }
 
     private void initPanes() {
         familyPane.setSelectedFamily(selectionModel.getSelectedFont().getName());
-        familyPane.addListSelectionListener(new FamilyListSelectionListener());
+        familyPane.addListSelectionListener(new FamilyListSelectionListener(this));
 
         stylePane.setSelectedStyle(Style.of(selectionModel.getSelectedFont()));
-        stylePane.addListSelectionListener(new StyleListSelectionListener());
+        stylePane.addListSelectionListener(new StyleListSelectionListener(this));
 
-        sizePane.addListSelectionListener(new SizeListSelectionListener());
+        sizePane.addListSelectionListener(new SizeListSelectionListener(this));
         sizePane.setSelectedSize(selectionModel.getSelectedFont().getSize());
     }
 
@@ -259,43 +264,23 @@ public class FontChooser extends JPanel {
         add(fontPanel, BorderLayout.CENTER);
     }
 
-    private class FamilyListSelectionListener implements ListSelectionListener {
-
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-            if (!e.getValueIsAdjusting()) {
-                Font sel = new Font(familyPane.getSelectedFamily(), stylePane.getSelectedStyle().ordinal(),
-                        sizePane.getSelectedSize());
-                selectionModel.setSelectedFont(sel);
-                previewPane.setPreviewFont(selectionModel.getSelectedFont());
-            }
-        }
+    @Override
+    public int getSelectedStyle() {
+        return stylePane.getSelectedStyle();
     }
 
-    private class StyleListSelectionListener implements ListSelectionListener {
-
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-            if (!e.getValueIsAdjusting()) {
-                selectionModel.setSelectedFont(selectionModel.getSelectedFont()
-                        .deriveFont(stylePane.getSelectedStyle().ordinal()));
-                previewPane.setPreviewFont(selectionModel.getSelectedFont());
-            }
-        }
+    @Override
+    public float getSelectedSize() {
+        return sizePane.getSelectedSize();
     }
 
-    private class SizeListSelectionListener implements ListSelectionListener {
-
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-            if (!e.getValueIsAdjusting()) {
-                float newSize = sizePane.getSelectedSize();
-                Font newFont = selectionModel.getSelectedFont().deriveFont(newSize);
-                selectionModel.setSelectedFont(newFont);
-                previewPane.setPreviewFont(selectionModel.getSelectedFont());
-            }
-        }
+    @Override
+    public String getSelectedFamily() {
+        return familyPane.getSelectedFamily();
     }
 
-
+    @Override
+    public void setPreviewFont(Font font) {
+        previewPane.setPreviewFont(font);
+    }
 }

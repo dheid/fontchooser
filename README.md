@@ -2,16 +2,35 @@
 
 This Java Swing component allows users to select a font by selecting a font family name, the style (plain, bold, italics)
 
+## Building
+
+    mvn package
+
 ## Usage
 
-        EventQueue.invokeAndWait(() -> {
-            FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
-            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-            dialog.setVisible(true);
-            if (!dialog.isCancelSelected()) {
-                System.out.println("Selected font is: " + dialog.getSelectedFont());
-            }
-        });
+Include the following dependency to your project:
+```xml 
+<dependency>
+    <groupId>io.github.dheid</groupId>
+    <artifactId>fontchooser</artifactId>
+    <version>1.2</version>
+ </dependency>
+```
+
+Here is an example on how to use the font chooser dialog in your application:
+
+```java
+EventQueue.invokeAndWait(() -> {
+    FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
+    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+    dialog.setVisible(true);
+    if (!dialog.isCancelSelected()) {
+        System.out.println("Selected font is: " + dialog.getSelectedFont());
+    }
+});
+```
+
+You'll find the example in the file ```example/DialogExample.java```.
 
 ## Contributing
 
