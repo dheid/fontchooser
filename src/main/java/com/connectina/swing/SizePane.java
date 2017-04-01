@@ -113,6 +113,9 @@ public class SizePane extends JPanel {
     }
 
     public int getSelectedSize() {
+        if (!sizeList.isSelectionEmpty()) {
+            return sizeList.getSelectedValue();
+        }
         return (Integer) sizeSpinner.getValue();
     }
 
