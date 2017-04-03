@@ -2,6 +2,17 @@
 
 This Java Swing component allows users to select a font by selecting a font family name, the style (plain, bold, italics)
 
+There are translations for the following languages:
+
+* English
+* German
+* Greek
+* Spanish
+* Finnish
+* French
+* Brazilian Portuguese
+* Russian
+
 ## Building
 
     mvn package
@@ -20,14 +31,21 @@ Include the following dependency to your project:
 Here is an example on how to use the font chooser dialog in your application:
 
 ```java
-EventQueue.invokeAndWait(() -> {
-    FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
-    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-    dialog.setVisible(true);
-    if (!dialog.isCancelSelected()) {
-        System.out.println("Selected font is: " + dialog.getSelectedFont());
-    }
-});
+// better font rendering                                                                                    
+System.setProperty("swing.aatext", "true");                                                                 
+System.setProperty("awt.useSystemAAFontSettings", "lcd");                                                   
+                                                                                                            
+// FontChooserDialog and FontChooser provide different translations                                         
+Locale.setDefault(new Locale("fi"));                                                                        
+                                                                                                            
+EventQueue.invokeAndWait(() -> {                                                                            
+    FontChooserDialog dialog = new FontChooserDialog((Frame)null, "Font Dialog Example", true);             
+    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);                                      
+    dialog.setVisible(true);                                                                                
+    if (!dialog.isCancelSelected()) {                                                                       
+        System.out.println("Selected font is: " + dialog.getSelectedFont());                                
+    }                                                                                                       
+});                                                                                                         
 ```
 
 You'll find the example in the file ```example/DialogExample.java```.
