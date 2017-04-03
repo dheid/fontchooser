@@ -24,7 +24,7 @@ Include the following dependency to your project:
 <dependency>
     <groupId>io.github.dheid</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
  </dependency>
 ```
 
