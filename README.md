@@ -58,6 +58,12 @@ You'll find the example in the file ```example/DialogExample.java```.
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Continuous Integration
+
+[![Linux/Mac Build Status](https://secure.travis-ci.org/dheid/fontchooser.png)](http://travis-ci.org/dheid/fontchooser)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
+
+
 ## Credits
 
 This is a modification of the JFontChooser component, written by Dr Christos Bohoris (Copyright 2009).
