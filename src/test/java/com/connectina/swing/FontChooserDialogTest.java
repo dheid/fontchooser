@@ -1,8 +1,8 @@
 package com.connectina.swing;
 
-import java.awt.Font;
-
 import org.junit.Test;
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -13,14 +13,15 @@ import static org.junit.Assert.assertThat;
  */
 public class FontChooserDialogTest {
 
-    private FontChooserDialog dialog = new FontChooserDialog();
-
     @Test
     public void initializesWithDefaultChooser() throws Exception {
-        Font selectedFont = dialog.getSelectedFont();
-        assertThat(selectedFont.getName(), is(Font.SANS_SERIF));
-        assertThat(selectedFont.getStyle(), is(Font.PLAIN));
-        assertThat(selectedFont.getSize(), is(FontChooser.DEFAULT_FONT_SIZE));
+        if (!GraphicsEnvironment.isHeadless()) {
+            FontChooserDialog dialog = new FontChooserDialog();
+            Font selectedFont = dialog.getSelectedFont();
+            assertThat(selectedFont.getName(), is(Font.SANS_SERIF));
+            assertThat(selectedFont.getStyle(), is(Font.PLAIN));
+            assertThat(selectedFont.getSize(), is(FontChooser.DEFAULT_FONT_SIZE));
+        }
     }
 
 }
