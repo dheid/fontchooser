@@ -1,8 +1,5 @@
 package io.github.dheid.fontchooser.listeners;
 
-import javax.swing.event.ListSelectionEvent;
-import java.awt.Font;
-
 import io.github.dheid.fontchooser.FontContainer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +8,9 @@ import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import javax.swing.event.ListSelectionEvent;
+import java.awt.Font;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -46,20 +46,21 @@ public class FamilyListSelectionListenerTest {
     @Test
     public void updatesCurrentFont() throws Exception {
 
-        Font expectedFont = new Font(NAME, STYLE, (int)SIZE);
+        Font expectedFont = new Font(NAME, STYLE, (int) SIZE);
 
-        when(fontContainer.getSelectedFamily()).thenReturn(NAME);
-        when(fontContainer.getSelectedStyle()).thenReturn(STYLE);
         when(fontContainer.getSelectedSize()).thenReturn(SIZE);
         when(fontContainer.getSelectedFont()).thenReturn(font);
+        when(fontContainer.getSelectedFamily()).thenReturn(NAME);
+        when(font.getStyle()).thenReturn(STYLE);
 
         familyListSelectionListener.valueChanged(listSelectionEvent);
 
         verify(fontContainer).setSelectedFont(fontArgumentCaptor.capture());
-        verify(fontContainer).setPreviewFont(font);
 
         Font actualFont = fontArgumentCaptor.getValue();
         assertThat(actualFont, is(expectedFont));
+
+        verify(fontContainer).setPreviewFont(actualFont);
 
     }
 

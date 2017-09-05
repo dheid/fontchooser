@@ -1,10 +1,10 @@
 package io.github.dheid.fontchooser.listeners;
 
+import io.github.dheid.fontchooser.FontContainer;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Font;
-
-import io.github.dheid.fontchooser.FontContainer;
 
 
 /**
@@ -21,10 +21,12 @@ public class StyleListSelectionListener implements ListSelectionListener {
     @Override
     public void valueChanged(ListSelectionEvent e) {
         if (!e.getValueIsAdjusting()) {
-            int selectedStyle = fontContainer.getSelectedStyle();
-            Font newFont = fontContainer.getSelectedFont().deriveFont(selectedStyle);
+            String selectedStyle = fontContainer.getSelectedStyle();
+            Font oldFont = fontContainer.getSelectedFont();
+            Font newFont = new Font(selectedStyle, oldFont.getStyle(), oldFont.getSize());
             fontContainer.setSelectedFont(newFont);
-            fontContainer.setPreviewFont(fontContainer.getSelectedFont());
+            fontContainer.setPreviewFont(newFont);
         }
     }
+
 }

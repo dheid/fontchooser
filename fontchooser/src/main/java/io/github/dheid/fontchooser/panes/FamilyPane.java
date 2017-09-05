@@ -1,12 +1,14 @@
 package io.github.dheid.fontchooser.panes;
 
+import io.github.dheid.fontchooser.FontFamilies;
+import io.github.dheid.fontchooser.FontFamily;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
 
 
 public class FamilyPane extends JScrollPane {
@@ -17,11 +19,9 @@ public class FamilyPane extends JScrollPane {
 
         DefaultListModel<String> familyListModel = new DefaultListModel<>();
 
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String[] families = ge.getAvailableFontFamilyNames();
-
-        for (String family : families) {
-            familyListModel.addElement(family);
+        FontFamilies fontFamilies = FontFamilies.getInstance();
+        for (FontFamily fontFamily : fontFamilies) {
+            familyListModel.addElement(fontFamily.getName());
         }
 
         familyList.setModel(familyListModel);

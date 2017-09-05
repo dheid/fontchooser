@@ -156,14 +156,14 @@ public class FontChooserDialog extends JDialog {
         controlPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
         add(controlPanel, BorderLayout.PAGE_END);
 
-        okButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle,"action.ok.mnemonic"));
+        okButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle, "action.ok.mnemonic"));
         okButton.setText(bundle.getString("action.ok"));
         okButton.addActionListener(event -> {
             dispose();
         });
         controlPanel.add(okButton);
 
-        cancelButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle,"action.cancel.mnemonic"));
+        cancelButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle, "action.cancel.mnemonic"));
         cancelButton.setText(bundle.getString("action.cancel"));
         cancelButton.addActionListener(event -> {
             cancelSelected = true;

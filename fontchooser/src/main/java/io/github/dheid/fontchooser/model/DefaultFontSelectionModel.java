@@ -80,6 +80,11 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
     }
 
     @Override
+    public String getSelectedFontFamily() {
+        return selectedFont.getFamily();
+    }
+
+    @Override
     public int getSelectedFontSize() {
         return selectedFont.getSize();
     }
@@ -146,7 +151,7 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
                 if (changeEvent == null) {
                     changeEvent = new ChangeEvent(this);
                 }
-                ((ChangeListener)listeners[i + 1]).stateChanged(changeEvent);
+                ((ChangeListener) listeners[i + 1]).stateChanged(changeEvent);
             }
         }
     }

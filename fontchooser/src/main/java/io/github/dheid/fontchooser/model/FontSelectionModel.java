@@ -47,6 +47,13 @@ public interface FontSelectionModel {
     String getSelectedFontName();
 
     /**
+     * Returns the family name of the selected font
+     *
+     * @return the name of the selected font's family
+     */
+    String getSelectedFontFamily();
+
+    /**
      * Returns the size of the selected font
      *
      * @return the size of the selected font

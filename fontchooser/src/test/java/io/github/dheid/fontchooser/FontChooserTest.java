@@ -1,10 +1,5 @@
 package io.github.dheid.fontchooser;
 
-import javax.swing.event.ChangeListener;
-import java.awt.Font;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
 import io.github.dheid.fontchooser.model.DefaultFontSelectionModel;
 import io.github.dheid.fontchooser.model.FontSelectionModel;
 import org.hamcrest.Matchers;
@@ -14,6 +9,11 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import javax.swing.event.ChangeListener;
+import java.awt.Font;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -52,7 +52,7 @@ public class FontChooserTest {
         assertThat(selectedFont.getName(), is(Font.SANS_SERIF));
         assertThat(selectedFont.getStyle(), is(Font.PLAIN));
         assertThat(selectedFont.getSize(), Matchers.is(12));
-        assertThat(fontChooser.getSelectedStyle(), is(0));
+        assertThat(fontChooser.getSelectedStyle(), is(Font.SANS_SERIF));
         assertThat(fontChooser.getSelectedSize(), is(12.0F));
         assertThat(fontChooser.getSelectedFamily(), is(Font.SANS_SERIF));
 

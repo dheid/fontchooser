@@ -8,7 +8,7 @@ import java.awt.Font;
  */
 public interface FontContainer {
 
-    int getSelectedStyle();
+    String getSelectedStyle();
 
     float getSelectedSize();
 

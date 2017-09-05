@@ -1,35 +1,37 @@
 package io.github.dheid.fontchooser.panes;
 
-import io.github.dheid.fontchooser.Style;
+import io.github.dheid.fontchooser.FontFamilies;
+import io.github.dheid.fontchooser.FontFamily;
+import io.github.dheid.fontchooser.model.FontSelectionModel;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
-import java.util.ResourceBundle;
+import java.awt.Font;
+import java.util.Objects;
 
 
-public class StylePane extends JScrollPane {
+public class StylePane extends JScrollPane implements ChangeListener {
 
     private JList<String> styleList = new JList<>();
 
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
+    private final DefaultListModel<String> styleListModel;
+
+    private String family;
 
     public StylePane() {
 
-        DefaultListModel<String> styleListModel = new DefaultListModel<>();
-
-        for (Style style : Style.values()) {
-            styleListModel.addElement(resourceBundle.getString(style.getBundleKey()));
-        }
-
+        styleListModel = new DefaultListModel<>();
         styleList.setModel(styleListModel);
         styleList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        setMinimumSize(new Dimension(60, 120));
-        setPreferredSize(new Dimension(80, 150));
+        setMinimumSize(new Dimension(100, 120));
+        setPreferredSize(new Dimension(120, 150));
         setViewportView(styleList);
 
     }
@@ -38,12 +40,60 @@ public class StylePane extends JScrollPane {
         styleList.addListSelectionListener(listener);
     }
 
-    public void setSelectedStyle(Style style) {
-        styleList.setSelectedIndex(style.ordinal());
+    public void setSelectedStyle(String name) {
+        styleList.setSelectedValue(name, true);
     }
 
-    public int getSelectedStyle() {
-        return Style.values()[styleList.getSelectedIndex()].ordinal();
+    public String getSelectedStyle() {
+        return styleList.getSelectedValue();
     }
 
+    @Override
+    public void stateChanged(ChangeEvent e) {
+
+        FontSelectionModel fontSelectionModel = (FontSelectionModel) e.getSource();
+        Font selectedFont = fontSelectionModel.getSelectedFont();
+        String family = selectedFont.getFamily();
+
+        loadFamily(family);
+
+    }
+
+    public void loadFamily(String family) {
+        if (Objects.equals(this.family, family)) {
+            return;
+        }
+
+        this.family = family;
+
+        ListSelectionListener[] selectionListeners = styleList.getListSelectionListeners();
+
+        removeSelectionListeners(selectionListeners);
+
+        FontFamilies fontFamilies = FontFamilies.getInstance();
+        FontFamily fontFamily = fontFamilies.get(family);
+        updateListModel(fontFamily);
+
+        addSelectionListeners(selectionListeners);
+    }
+
+    private void updateListModel(Iterable<Font> fonts) {
+        styleListModel.clear();
+
+        for (Font font : fonts) {
+            styleListModel.addElement(font.getName());
+        }
+    }
+
+    private void addSelectionListeners(ListSelectionListener[] selectionListeners) {
+        for (ListSelectionListener listener : selectionListeners) {
+            styleList.addListSelectionListener(listener);
+        }
+    }
+
+    private void removeSelectionListeners(ListSelectionListener[] selectionListeners) {
+        for (ListSelectionListener listener : selectionListeners) {
+            styleList.removeListSelectionListener(listener);
+        }
+    }
 }
