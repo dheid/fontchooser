@@ -22,7 +22,7 @@ There are translations for the following languages:
 
 ## Building
 
-    mvn package
+    mvn install
 
 ## Usage
 
