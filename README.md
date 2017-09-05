@@ -13,6 +13,13 @@ There are translations for the following languages:
 * Brazilian Portuguese
 * Russian
 
+## Continuous Integration
+
+[![Linux/Mac Build Status](https://secure.travis-ci.org/dheid/fontchooser.png)](http://travis-ci.org/dheid/fontchooser)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
+[![Coverage Status](https://coveralls.io/repos/dheid/fontchooser/badge.svg?branch=master&service=github)](https://coveralls.io/github/dheid/fontchooser?branch=master)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/)
+
 ## Building
 
     mvn package
@@ -57,12 +64,6 @@ You'll find the example in the file ```example/DialogExample.java```.
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-## Continuous Integration
-
-[![Linux/Mac Build Status](https://secure.travis-ci.org/dheid/fontchooser.png)](http://travis-ci.org/dheid/fontchooser)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
-
 
 ## Credits
 
