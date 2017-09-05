@@ -1,9 +1,10 @@
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.panes;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Font;
 
+import io.github.dheid.fontchooser.panes.FamilyPane;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;

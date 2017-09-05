@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import io.github.dheid.fontchooser.model.DefaultFontSelectionModel;
+import io.github.dheid.fontchooser.model.FontSelectionModel;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;

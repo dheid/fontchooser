@@ -17,7 +17,7 @@
  *
  * swing@connectina.com
  */
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.model;
 
 import javax.swing.event.ChangeListener;
 import java.awt.Font;

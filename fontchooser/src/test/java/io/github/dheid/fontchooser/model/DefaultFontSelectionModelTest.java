@@ -1,9 +1,10 @@
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.model;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.Font;
 
+import io.github.dheid.fontchooser.model.DefaultFontSelectionModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;

@@ -1,4 +1,6 @@
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.panes;
+
+import io.github.dheid.fontchooser.Style;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;

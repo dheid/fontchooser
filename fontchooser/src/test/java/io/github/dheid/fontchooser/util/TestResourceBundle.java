@@ -1,4 +1,4 @@
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.util;
 
 import java.util.Collections;
 import java.util.Enumeration;

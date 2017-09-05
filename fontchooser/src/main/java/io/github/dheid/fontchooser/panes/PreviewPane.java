@@ -1,4 +1,4 @@
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.panes;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;

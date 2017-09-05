@@ -1,4 +1,4 @@
-package io.github.dheid.fontchooser;
+package io.github.dheid.fontchooser.util;
 
 import org.junit.Test;
 
