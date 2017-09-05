@@ -1,4 +1,4 @@
-import com.connectina.swing.FontChooserDialog;
+import io.github.dheid.fontchooser.FontChooserDialog;
 
 import javax.swing.*;
 import java.awt.*;

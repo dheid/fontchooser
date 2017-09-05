@@ -1,4 +1,4 @@
-package com.connectina.swing;
+package io.github.dheid.fontchooser;
 
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
@@ -15,7 +15,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import static com.connectina.swing.FontChooser.DEFAULT_FONT_SIZE;
+import static io.github.dheid.fontchooser.FontChooser.DEFAULT_FONT_SIZE;
 
 public class SizePane extends JPanel {
 

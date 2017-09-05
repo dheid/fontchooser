@@ -1,9 +1,9 @@
-package com.connectina.swing.listeners;
+package io.github.dheid.fontchooser.listeners;
 
 import javax.swing.event.ListSelectionEvent;
 import java.awt.Font;
 
-import com.connectina.swing.FontContainer;
+import io.github.dheid.fontchooser.FontContainer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -22,12 +22,12 @@ import static org.mockito.Mockito.when;
  * Created by dheid on 4/1/17.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class StyleListSelectionListenerTest {
+public class SizeListSelectionListenerTest {
 
-    private static final int STYLE = 1;
+    private static final float SIZE = 1.0f;
 
     @InjectMocks
-    private StyleListSelectionListener styleListSelectionListener;
+    private SizeListSelectionListener sizeListSelectionListener;
 
     @Mock
     private FontContainer fontContainer;
@@ -47,13 +47,13 @@ public class StyleListSelectionListenerTest {
     @Test
     public void updatesCurrentFont() throws Exception {
 
-        when(fontContainer.getSelectedStyle()).thenReturn(STYLE);
+        when(fontContainer.getSelectedSize()).thenReturn(SIZE);
         when(fontContainer.getSelectedFont()).thenReturn(font);
-        when(font.deriveFont(STYLE)).thenReturn(derivedFont);
+        when(font.deriveFont(SIZE)).thenReturn(derivedFont);
 
-        styleListSelectionListener.valueChanged(listSelectionEvent);
+        sizeListSelectionListener.valueChanged(listSelectionEvent);
 
-        verify(font).deriveFont(STYLE);
+        verify(font).deriveFont(SIZE);
         verify(fontContainer).setSelectedFont(fontArgumentCaptor.capture());
         verify(fontContainer).setPreviewFont(font);
 

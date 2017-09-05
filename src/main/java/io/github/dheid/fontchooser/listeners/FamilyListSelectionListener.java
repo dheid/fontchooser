@@ -1,10 +1,10 @@
-package com.connectina.swing.listeners;
+package io.github.dheid.fontchooser.listeners;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Font;
 
-import com.connectina.swing.FontContainer;
+import io.github.dheid.fontchooser.FontContainer;
 
 
 /**

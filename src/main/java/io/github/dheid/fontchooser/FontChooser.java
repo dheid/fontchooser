@@ -17,7 +17,7 @@
  *
  * swing@connectina.com
  */
-package com.connectina.swing;
+package io.github.dheid.fontchooser;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -30,9 +30,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ResourceBundle;
 
-import com.connectina.swing.listeners.FamilyListSelectionListener;
-import com.connectina.swing.listeners.SizeListSelectionListener;
-import com.connectina.swing.listeners.StyleListSelectionListener;
+import io.github.dheid.fontchooser.listeners.FamilyListSelectionListener;
+import io.github.dheid.fontchooser.listeners.SizeListSelectionListener;
+import io.github.dheid.fontchooser.listeners.StyleListSelectionListener;
 
 
 /**

@@ -1,9 +1,9 @@
-package com.connectina.swing.listeners;
+package io.github.dheid.fontchooser.listeners;
 
 import javax.swing.event.ListSelectionEvent;
 import java.awt.Font;
 
-import com.connectina.swing.FontContainer;
+import io.github.dheid.fontchooser.FontContainer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -22,12 +22,14 @@ import static org.mockito.Mockito.when;
  * Created by dheid on 4/1/17.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class SizeListSelectionListenerTest {
+public class FamilyListSelectionListenerTest {
 
-    private static final float SIZE = 1.0f;
+    private static final String NAME = Font.DIALOG;
+    private static final int STYLE = 1;
+    private static final float SIZE = 2.0f;
 
     @InjectMocks
-    private SizeListSelectionListener sizeListSelectionListener;
+    private FamilyListSelectionListener familyListSelectionListener;
 
     @Mock
     private FontContainer fontContainer;
@@ -38,27 +40,27 @@ public class SizeListSelectionListenerTest {
     @Mock
     private Font font;
 
-    @Mock
-    private Font derivedFont;
-
     @Captor
     private ArgumentCaptor<Font> fontArgumentCaptor;
 
     @Test
     public void updatesCurrentFont() throws Exception {
 
+        Font expectedFont = new Font(NAME, STYLE, (int)SIZE);
+
+        when(fontContainer.getSelectedFamily()).thenReturn(NAME);
+        when(fontContainer.getSelectedStyle()).thenReturn(STYLE);
         when(fontContainer.getSelectedSize()).thenReturn(SIZE);
         when(fontContainer.getSelectedFont()).thenReturn(font);
-        when(font.deriveFont(SIZE)).thenReturn(derivedFont);
 
-        sizeListSelectionListener.valueChanged(listSelectionEvent);
+        familyListSelectionListener.valueChanged(listSelectionEvent);
 
-        verify(font).deriveFont(SIZE);
         verify(fontContainer).setSelectedFont(fontArgumentCaptor.capture());
         verify(fontContainer).setPreviewFont(font);
 
         Font actualFont = fontArgumentCaptor.getValue();
-        assertThat(actualFont, is(derivedFont));
+        assertThat(actualFont, is(expectedFont));
 
     }
+
 }

@@ -17,7 +17,7 @@
  *
  * swing@connectina.com
  */
-package com.connectina.swing;
+package io.github.dheid.fontchooser;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;

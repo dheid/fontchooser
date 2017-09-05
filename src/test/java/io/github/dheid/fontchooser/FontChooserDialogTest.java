@@ -1,4 +1,4 @@
-package com.connectina.swing;
+package io.github.dheid.fontchooser;
 
 import org.junit.Test;
 import java.awt.Font;

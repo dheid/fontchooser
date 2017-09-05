@@ -1,4 +1,4 @@
-package com.connectina.swing;
+package io.github.dheid.fontchooser;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
