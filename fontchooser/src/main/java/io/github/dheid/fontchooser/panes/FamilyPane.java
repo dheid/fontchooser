@@ -26,6 +26,7 @@ public class FamilyPane extends JScrollPane {
 
         familyList.setModel(familyListModel);
         familyList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        familyList.setCellRenderer(new ToolTipCellRenderer());
 
         setMinimumSize(new Dimension(80, 50));
         setPreferredSize(new Dimension(240, 150));
