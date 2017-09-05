@@ -15,7 +15,7 @@ There are translations for the following languages:
 
 ## Continuous Integration
 
-[![Linux/Mac Build Status](https://secure.travis-ci.org/dheid/fontchooser.png)](http://travis-ci.org/dheid/fontchooser)
+[![Build Status](https://travis-ci.org/dheid/fontchooser.svg?branch=master)](https://travis-ci.org/dheid/fontchooser)
 [![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/github/dheid/fontchooser?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/)
