@@ -44,7 +44,8 @@ import io.github.dheid.fontchooser.listeners.StyleListSelectionListener;
  */
 public class FontChooser extends JPanel implements FontContainer {
 
-    public static final int DEFAULT_FONT_SIZE = 12;
+    private static final int DEFAULT_FONT_SIZE = 12;
+    private static final int DEFAULT_SPACE = 11;
 
     private static final String SELECTION_MODEL_PROPERTY = "selectionModel";
 
@@ -156,14 +157,14 @@ public class FontChooser extends JPanel implements FontContainer {
     }
 
     private void initPanes() {
-        familyPane.setSelectedFamily(selectionModel.getSelectedFont().getName());
+        familyPane.setSelectedFamily(selectionModel.getSelectedFontName());
         familyPane.addListSelectionListener(new FamilyListSelectionListener(this));
 
         stylePane.setSelectedStyle(Style.of(selectionModel.getSelectedFont()));
         stylePane.addListSelectionListener(new StyleListSelectionListener(this));
 
         sizePane.addListSelectionListener(new SizeListSelectionListener(this));
-        sizePane.setSelectedSize(selectionModel.getSelectedFont().getSize());
+        sizePane.setSelectedSize(selectionModel.getSelectedFontSize());
     }
 
     private void addComponents() {
@@ -194,7 +195,7 @@ public class FontChooser extends JPanel implements FontContainer {
     }
 
     private void addPreviewLabel() {
-        previewLabel.setDisplayedMnemonic(resourceBundle.getString("font.preview.mnemonic").charAt(0));
+        previewLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle, "font.preview.mnemonic"));
         previewLabel.setText(resourceBundle.getString("font.preview"));
     }
 
@@ -204,7 +205,7 @@ public class FontChooser extends JPanel implements FontContainer {
         gridBagConstraints3.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints3.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints3.weighty = 1.0;
-        gridBagConstraints3.insets = new Insets(0, 0, 11, 0);
+        gridBagConstraints3.insets = new Insets(0, 0, DEFAULT_SPACE, 0);
         fontPanel.add(sizePane, gridBagConstraints3);
     }
 
@@ -214,7 +215,7 @@ public class FontChooser extends JPanel implements FontContainer {
         gridBagConstraints.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(0, 0, 11, 11);
+        gridBagConstraints.insets = new Insets(0, 0, DEFAULT_SPACE, DEFAULT_SPACE);
         fontPanel.add(stylePane, gridBagConstraints);
     }
 
@@ -225,13 +226,13 @@ public class FontChooser extends JPanel implements FontContainer {
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new Insets(0, 0, 11, 11);
+        gridBagConstraints.insets = new Insets(0, 0, DEFAULT_SPACE, DEFAULT_SPACE);
         fontPanel.add(familyPane, gridBagConstraints);
     }
 
     private void addSizeLabel() {
         sizeLabel.setLabelFor(sizePane);
-        sizeLabel.setDisplayedMnemonic(resourceBundle.getString("font.size.mnemonic").charAt(0));
+        sizeLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle,"font.size.mnemonic"));
         sizeLabel.setText(resourceBundle.getString("font.size"));
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
@@ -241,11 +242,11 @@ public class FontChooser extends JPanel implements FontContainer {
 
     private void addStyleLabel() {
         styleLabel.setLabelFor(stylePane);
-        styleLabel.setDisplayedMnemonic(resourceBundle.getString("font.style.mnemonic").charAt(0));
+        styleLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle,"font.style.mnemonic"));
         styleLabel.setText(resourceBundle.getString("font.style"));
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new Insets(0, 0, 5, 11);
+        gridBagConstraints.insets = new Insets(0, 0, 5, DEFAULT_SPACE);
         fontPanel.add(styleLabel, gridBagConstraints);
     }
 
@@ -253,9 +254,9 @@ public class FontChooser extends JPanel implements FontContainer {
         familyLabel.setLabelFor(familyPane);
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new Insets(0, 0, 5, 11);
+        gridBagConstraints.insets = new Insets(0, 0, 5, DEFAULT_SPACE);
         fontPanel.add(familyLabel, gridBagConstraints);
-        familyLabel.setDisplayedMnemonic(resourceBundle.getString("font.family.mnemonic").charAt(0));
+        familyLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle,"font.family.mnemonic"));
         familyLabel.setText(resourceBundle.getString("font.family"));
     }
 

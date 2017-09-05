@@ -15,8 +15,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import static io.github.dheid.fontchooser.FontChooser.DEFAULT_FONT_SIZE;
-
 public class SizePane extends JPanel {
 
     private JList<Integer> sizeList = new JList<>();
@@ -58,7 +56,7 @@ public class SizePane extends JPanel {
     private void initSizeSpinner() {
         int spinnerHeight = (int) sizeSpinner.getPreferredSize().getHeight();
         sizeSpinner.setPreferredSize(new Dimension(60, spinnerHeight));
-        sizeSpinner.setModel(new SpinnerNumberModel(DEFAULT_FONT_SIZE, 6, 128, 1));
+        sizeSpinner.setModel(new SpinnerNumberModel(12, 6, 128, 1));
         sizeSpinner.addChangeListener(event -> {
 
             Integer value = (Integer) sizeSpinner.getValue();

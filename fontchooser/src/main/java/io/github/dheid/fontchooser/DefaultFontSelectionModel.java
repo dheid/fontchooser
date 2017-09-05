@@ -34,17 +34,21 @@ import java.util.Objects;
  */
 public class DefaultFontSelectionModel implements FontSelectionModel {
 
+    private static final int DEFAULT_SIZE = 12;
+
     /**
      * A list of registered event listeners.
      */
     private final EventListenerList listenerList = new EventListenerList();
+
     /**
      * Only one {@code ChangeEvent} is needed per model instance
      * since the event's only (read-only) state is the source property.
      * The source of events generated here is always "this".
      */
     private transient ChangeEvent changeEvent;
-    private Font selectedFont;
+
+    private Font selectedFont = new Font(Font.SANS_SERIF, Font.PLAIN, DEFAULT_SIZE);
 
     /**
      * Creates a {@code DefaultFontSelectionModel} with the
@@ -68,6 +72,16 @@ public class DefaultFontSelectionModel implements FontSelectionModel {
     @Override
     public Font getSelectedFont() {
         return selectedFont;
+    }
+
+    @Override
+    public String getSelectedFontName() {
+        return selectedFont.getName();
+    }
+
+    @Override
+    public int getSelectedFontSize() {
+        return selectedFont.getSize();
     }
 
     /**

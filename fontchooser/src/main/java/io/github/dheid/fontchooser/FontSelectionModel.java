@@ -40,6 +40,20 @@ public interface FontSelectionModel {
     Font getSelectedFont();
 
     /**
+     * Returns the name of the selected font
+     *
+     * @return the name of the selected font
+     */
+    String getSelectedFontName();
+
+    /**
+     * Returns the size of the selected font
+     *
+     * @return the size of the selected font
+     */
+    int getSelectedFontSize();
+
+    /**
      * Sets the selected font to {@code font}.
      * Note that setting the font to {@code null}
      * is undefined and may have unpredictable results.

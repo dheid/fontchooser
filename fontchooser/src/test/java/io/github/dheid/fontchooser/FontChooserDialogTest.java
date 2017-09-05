@@ -20,7 +20,7 @@ public class FontChooserDialogTest {
             Font selectedFont = dialog.getSelectedFont();
             assertThat(selectedFont.getName(), is(Font.SANS_SERIF));
             assertThat(selectedFont.getStyle(), is(Font.PLAIN));
-            assertThat(selectedFont.getSize(), is(FontChooser.DEFAULT_FONT_SIZE));
+            assertThat(selectedFont.getSize(), is(12));
         }
     }
 
