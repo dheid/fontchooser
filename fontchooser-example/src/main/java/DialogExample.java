@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class DialogExample {
 
-    public static void main(String... args) throws InvocationTargetException, InterruptedException {
+    public static void main(String[] args) throws InvocationTargetException, InterruptedException {
 
         // better font rendering
         System.setProperty("swing.aatext", "true");
@@ -25,6 +25,7 @@ public class DialogExample {
                 System.out.println("Selected font is: " + dialog.getSelectedFont());
             }
         });
+
     }
 
 }
