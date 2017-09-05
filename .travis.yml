@@ -6,9 +6,6 @@ jdk:
 sudo: false
 dist: trusty
 
-script:
-  - mvn install
-
 after_success:
   - mvn clean cobertura:cobertura coveralls:report
 
