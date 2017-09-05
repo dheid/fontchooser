@@ -17,8 +17,8 @@ import java.awt.Insets;
 
 public class SizePane extends JPanel {
 
-    private JList<Integer> sizeList = new JList<>();
-    private JSpinner sizeSpinner = new JSpinner();
+    private final JList<Integer> sizeList = new JList<>();
+    private final JSpinner sizeSpinner = new JSpinner();
     private final DefaultListModel<Integer> sizeListModel = new DefaultListModel<>();
 
     public SizePane() {
