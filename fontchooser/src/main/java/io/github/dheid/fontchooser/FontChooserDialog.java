@@ -147,16 +147,12 @@ public class FontChooserDialog extends JDialog {
         chooserPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 0, 11));
         chooserPanel.setLayout(new BorderLayout(0, 12));
         chooserPanel.add(chooser, BorderLayout.CENTER);
-
-        JPanel basePanel = new JPanel();
-        basePanel.setLayout(new BorderLayout());
-        basePanel.add(chooserPanel, BorderLayout.CENTER);
-        getContentPane().add(basePanel, BorderLayout.CENTER);
+        add(chooserPanel, BorderLayout.CENTER);
 
         JPanel controlPanel = new JPanel();
         controlPanel.setBorder(BorderFactory.createEmptyBorder(7, 7, 6, 6));
         controlPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
-        basePanel.add(controlPanel, BorderLayout.PAGE_END);
+        add(controlPanel, BorderLayout.PAGE_END);
 
         okButton.setMnemonic(bundle.getString("action.ok.mnemonic").charAt(0));
         okButton.setText(bundle.getString("action.ok"));

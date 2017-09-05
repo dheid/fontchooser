@@ -15,7 +15,7 @@ public class DialogExample {
         System.setProperty("awt.useSystemAAFontSettings", "lcd");
 
         // FontChooserDialog and FontChooser provide different translations
-        Locale.setDefault(new Locale("fi"));
+        Locale.setDefault(new Locale("en"));
 
         EventQueue.invokeAndWait(() -> {
             FontChooserDialog dialog = new FontChooserDialog((Frame)null, "Font Dialog Example", true);
