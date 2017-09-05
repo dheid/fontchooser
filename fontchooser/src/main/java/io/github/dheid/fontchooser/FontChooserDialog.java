@@ -19,6 +19,8 @@
  */
 package io.github.dheid.fontchooser;
 
+import io.github.dheid.fontchooser.util.ResourceBundleUtil;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -154,14 +156,14 @@ public class FontChooserDialog extends JDialog {
         controlPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
         add(controlPanel, BorderLayout.PAGE_END);
 
-        okButton.setMnemonic(bundle.getString("action.ok.mnemonic").charAt(0));
+        okButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle,"action.ok.mnemonic"));
         okButton.setText(bundle.getString("action.ok"));
         okButton.addActionListener(event -> {
             dispose();
         });
         controlPanel.add(okButton);
 
-        cancelButton.setMnemonic(bundle.getString("action.cancel.mnemonic").charAt(0));
+        cancelButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle,"action.cancel.mnemonic"));
         cancelButton.setText(bundle.getString("action.cancel"));
         cancelButton.addActionListener(event -> {
             cancelSelected = true;
