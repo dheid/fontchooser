@@ -14,35 +14,28 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
 
 
 public class FamilyPane extends JPanel {
 
     private final JList<String> familyList = new JList<>();
 
-    private final List<String> fontFamilyNames = new ArrayList<>();
     private JTextField searchField;
+
+    private final SearchListener searchListener;
 
     public FamilyPane() {
 
         DefaultListModel<String> familyListModel = new DefaultListModel<>();
-
         FontFamilies fontFamilies = FontFamilies.getInstance();
+        searchListener = new SearchListener(this);
         for (FontFamily fontFamily : fontFamilies) {
             String name = fontFamily.getName();
             familyListModel.addElement(name);
-            fontFamilyNames.add(name);
+            searchListener.addFamilyName(name);
         }
 
-        familyList.setModel(familyListModel);
-        familyList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        familyList.setCellRenderer(new ToolTipCellRenderer());
+        initializeList(familyListModel);
 
         setMinimumSize(new Dimension(80, 50));
         setPreferredSize(new Dimension(240, 150));
@@ -50,6 +43,12 @@ public class FamilyPane extends JPanel {
         setLayout(new GridBagLayout());
         addSearchField();
         addScrollPane();
+    }
+
+    private void initializeList(DefaultListModel<String> familyListModel) {
+        familyList.setModel(familyListModel);
+        familyList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        familyList.setCellRenderer(new ToolTipCellRenderer());
     }
 
     private void addSearchField() {
@@ -60,7 +59,7 @@ public class FamilyPane extends JPanel {
 
         searchField = new JTextField();
         searchField.requestFocus();
-        searchField.addKeyListener(new SearchListener());
+        searchField.addKeyListener(searchListener);
         add(searchField, gridBagConstraints);
     }
 
@@ -87,17 +86,4 @@ public class FamilyPane extends JPanel {
         return familyList.getSelectedValue();
     }
 
-    private class SearchListener extends KeyAdapter {
-
-        @Override
-        public void keyTyped(KeyEvent e) {
-            String searchString = searchField.getText();
-            Optional<String> first = fontFamilyNames.stream()
-                .filter(fontFamilyName -> fontFamilyName.toLowerCase(Locale.getDefault()).startsWith(searchString))
-                .findFirst();
-
-            first.ifPresent(s -> familyList.setSelectedValue(s, true));
-
-        }
-    }
 }
