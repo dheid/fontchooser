@@ -1,6 +1,5 @@
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.EventQueue;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
@@ -8,7 +7,6 @@ import java.util.Locale;
 public class ExampleRunner {
 
     public static void invoke(Runnable runnable) throws InterruptedException, InvocationTargetException {
-        useMetalLookAndFeel();
         enhanceFontRendering();
         useDifferentTranslation();
         EventQueue.invokeAndWait(runnable);
@@ -23,8 +21,8 @@ public class ExampleRunner {
         System.setProperty("awt.useSystemAAFontSettings", "lcd");
     }
 
-    private static void useMetalLookAndFeel() {
-        String lookAndFeelName = MetalLookAndFeel.class.getName();
+    public static void useLookAndFeel(Class<?> lookAndFeelClass) {
+        String lookAndFeelName = lookAndFeelClass.getName();
         try {
             UIManager.setLookAndFeel(lookAndFeelName);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {

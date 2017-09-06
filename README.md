@@ -1,8 +1,19 @@
 # Font Chooser
 
-![Font Chooser](fontchooser.png "Font Chooser")
+Java does not provide a font chooser out of the box. This easy to use lightweight Java Swing font chooser component
+allows users to select a font by selecting a font family name and the installed font variants.
 
-This Java Swing component allows users to select a font by selecting a font family name and the installed font variants.
+## Metal
+![Font Chooser (Metal)](fontchooser-metallookandfeel.png "Font Chooser")
+
+## Nimbus
+![Font Chooser (Nimbus)](fontchooser-nimbuslookandfeel.png "Font Chooser")
+
+## Aqua
+![Font Chooser (Aqua)](fontchooser-aqualookandfeel.png "Font Chooser")
+
+## Motif
+![Font Chooser (Motif)](fontchooser-motiflookandfeel.png "Font Chooser")
 
 There are translations for the following languages:
 
@@ -14,6 +25,9 @@ There are translations for the following languages:
 * French
 * Brazilian Portuguese
 * Russian
+
+Font Chooser is an open source project and completely free. I appreciate improvements or extensions. Please contact
+me if you have questions.
 
 ## Continuous Integration
 
