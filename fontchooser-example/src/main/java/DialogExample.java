@@ -4,10 +4,10 @@ import javax.swing.WindowConstants;
 import java.awt.Frame;
 import java.lang.reflect.InvocationTargetException;
 
-public class DialogExample extends Example implements Runnable {
+public class DialogExample implements Runnable {
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-        invoke(new DialogExample());
+        ExampleRunner.invoke(new DialogExample());
     }
 
     @Override

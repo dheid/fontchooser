@@ -7,12 +7,12 @@ import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
 import java.lang.reflect.InvocationTargetException;
 
-public class PanelExample extends Example implements Runnable {
+public class PanelExample implements Runnable {
 
     private final JLabel selection = new JLabel("Selected font will be displayed here");
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-        invoke(new PanelExample());
+        ExampleRunner.invoke(new PanelExample());
     }
 
     @Override

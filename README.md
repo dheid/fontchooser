@@ -1,5 +1,7 @@
 # Font Chooser
 
+![Font Chooser](fontchooser.png "Font Chooser")
+
 This Java Swing component allows users to select a font by selecting a font family name, the style (plain, bold, italics)
 
 There are translations for the following languages:

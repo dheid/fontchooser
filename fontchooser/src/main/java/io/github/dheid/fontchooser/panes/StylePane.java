@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class StylePane extends JScrollPane implements ChangeListener {
 
-    private JList<String> styleList = new JList<>();
+    private final JList<String> styleList = new JList<>();
 
     private final DefaultListModel<String> styleListModel;
 
@@ -31,8 +31,8 @@ public class StylePane extends JScrollPane implements ChangeListener {
         styleList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         styleList.setCellRenderer(new ToolTipCellRenderer());
 
-        setMinimumSize(new Dimension(120, 120));
-        setPreferredSize(new Dimension(140, 150));
+        setMinimumSize(new Dimension(140, 120));
+        setPreferredSize(new Dimension(160, 150));
         setViewportView(styleList);
 
     }
