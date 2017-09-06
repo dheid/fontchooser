@@ -53,18 +53,18 @@ You'll find more examples in the module fontchooser-example:
 
 ## Contributing
 
-Any help is welcome. You can [open bug reports or feature requests](https://github.com/dheid/fontchooser/issues) or
+Any help is welcome. Especially translations are very useful. You can [open bug reports or feature requests](https://github.com/dheid/fontchooser/issues) or
 implement new features.
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a [pull request](https://github.com/dheid/fontchooser/pulls) 
+1. [Fork it](https://github.com/dheid/fontchooser/fork)!
+2. Apply your changes and don't forget to add unit tests.
+3. Build using Maven and ensure, that the build was successful.
+3. Commit and push your changes.
+4. Submit a [pull request](https://github.com/dheid/fontchooser/pulls) 
 
 ## Credits
 
-This is a modification of the JFontChooser component, written by Dr Christos Bohoris (Copyright 2009).
+This is a major rewrite of the JFontChooser component, originally written by Dr Christos Bohoris (Copyright 2009).
 
 ## License
 
