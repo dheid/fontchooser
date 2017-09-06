@@ -132,7 +132,6 @@ public class FontChooserDialog extends JDialog {
     private void initDialog() {
         initComponents();
         getRootPane().setDefaultButton(okButton);
-        okButton.requestFocusInWindow();
 
         cancelButton.addActionListener(event -> cancelSelected = true);
         addWindowListener(new WindowAdapter() {
@@ -148,8 +147,8 @@ public class FontChooserDialog extends JDialog {
         JPanel chooserPanel = new JPanel();
         chooserPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 0, 11));
         chooserPanel.setLayout(new BorderLayout(0, 12));
-        chooserPanel.add(chooser, BorderLayout.CENTER);
-        add(chooserPanel, BorderLayout.CENTER);
+        chooserPanel.add(chooser);
+        add(chooserPanel);
 
         JPanel controlPanel = new JPanel();
         controlPanel.setBorder(BorderFactory.createEmptyBorder(7, 7, 6, 6));

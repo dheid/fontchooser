@@ -277,7 +277,7 @@ public class FontChooser extends JPanel implements FontContainer {
 
     private void addFontPanel() {
         fontPanel.setLayout(new GridBagLayout());
-        add(fontPanel, BorderLayout.CENTER);
+        add(fontPanel);
     }
 
     @Override

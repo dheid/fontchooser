@@ -24,7 +24,7 @@ public class PreviewPane extends JPanel {
         setBorder(BorderFactory.createEtchedBorder());
         setPreferredSize(new Dimension(200, 80));
         setLayout(new BorderLayout());
-        add(previewAreaLabel, BorderLayout.CENTER);
+        add(previewAreaLabel);
     }
 
     public void setPreviewFont(Font font) {

@@ -1,6 +1,9 @@
 import io.github.dheid.fontchooser.FontChooserDialog;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.lang.reflect.InvocationTargetException;
@@ -8,7 +11,10 @@ import java.util.Locale;
 
 public class DialogExample {
 
-    public static void main(String[] args) throws InvocationTargetException, InterruptedException {
+    public static void main(String[] args) throws InvocationTargetException, InterruptedException, ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+
+        // use nimbus look and feel
+        UIManager.setLookAndFeel(NimbusLookAndFeel.class.getName());
 
         // better font rendering
         System.setProperty("swing.aatext", "true");
