@@ -35,51 +35,32 @@ Include the following dependency to your project:
  </dependency>
 ```
 
-Here is an example on how to use the font chooser dialog in your application:
+Here is a simple example on how to use the font chooser dialog in your application:
 
 ```java
-import io.github.dheid.fontchooser.FontChooserDialog;
-
-import javax.swing.WindowConstants;
-import java.awt.EventQueue;
-import java.awt.Frame;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Locale;
-
-public class DialogExample {
-
-    public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-
-        // better font rendering
-        System.setProperty("swing.aatext", "true");
-        System.setProperty("awt.useSystemAAFontSettings", "lcd");
-
-        // FontChooserDialog and FontChooser provide different translations
-        Locale.setDefault(new Locale("en"));
-
-        EventQueue.invokeAndWait(() -> {
-            FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
-            dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            dialog.setVisible(true);
-            if (!dialog.isCancelSelected()) {
-                System.out.printf("Selected font is: %s%n", dialog.getSelectedFont());
-            }
-        });
-
-    }
-
-}                                                                                                       
+FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
+dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+dialog.setVisible(true);
+if (!dialog.isCancelSelected()) {
+  System.out.printf("Selected font is: %s%n", dialog.getSelectedFont());
+}                                                               
 ```
 
-You'll find the example in the file ```example/DialogExample.java```.
+You'll find more examples in the module fontchooser-example:
+
+* [DialogExample](fontchooser-example/src/main/java/DialogExample.java)
+* [PanelExample](fontchooser-example/src/main/java/PanelExample.java)
 
 ## Contributing
+
+Any help is welcome. You can [open bug reports or feature requests](https://github.com/dheid/fontchooser/issues) or
+implement new features.
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+5. Submit a [pull request](https://github.com/dheid/fontchooser/pulls) 
 
 ## Credits
 
