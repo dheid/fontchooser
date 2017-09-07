@@ -48,7 +48,16 @@ Include the following dependency to your project:
  </dependency>
 ```
 
-Here is a simple example on how to use the font chooser dialog in your application:
+If you want to apply a font to a specific component, e.g. a text area, simply use
+
+```java
+JTextArea textArea = new JTextArea();
+FontDialog.showDialog(textArea);
+```
+
+This will display the modal font dialog and apply the font to the component, if the user clicked OK.
+
+Here is another simple example on how to use the font chooser dialog in your application:
 
 ```java
 FontDialog dialog = new FontDialog((Frame) null, "Font Dialog Example", true);
@@ -63,6 +72,7 @@ You'll find more examples in the module fontchooser-example:
 
 * [DialogExample](fontchooser-example/src/main/java/DialogExample.java)
 * [PanelExample](fontchooser-example/src/main/java/PanelExample.java)
+* [ShowDialogExample](fontchooser-example/src/main/java/ShowDialogExample.java)
 
 ## Contributing
 

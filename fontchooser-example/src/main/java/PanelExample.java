@@ -1,6 +1,7 @@
 import io.github.dheid.fontchooser.FontChooser;
 import io.github.dheid.fontchooser.model.FontSelectionModel;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
@@ -19,7 +20,10 @@ public class PanelExample implements Runnable {
 
     @Override
     public void run() {
+        selection.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
         FontChooser fontChooser = new FontChooser();
+        fontChooser.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         fontChooser.addChangeListener(event -> {
             FontSelectionModel model = (FontSelectionModel) event.getSource();
             selection.setText(model.getSelectedFont().toString());

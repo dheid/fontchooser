@@ -25,7 +25,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -43,6 +45,15 @@ import java.util.ResourceBundle;
  * @author Christos Bohoris
  */
 public class FontDialog extends JDialog {
+
+    public static void showDialog(Component component) {
+        FontDialog dialog = new FontDialog((Frame) null, "Select Font", true);
+        dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        dialog.setVisible(true);
+        if (!dialog.isCancelSelected()) {
+            component.setFont(dialog.getSelectedFont());
+        }
+    }
 
     private final FontChooser chooser = new FontChooser();
     private final JButton cancelButton = new JButton();
