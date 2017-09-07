@@ -13,6 +13,9 @@ for a font and insert their own preview text.
 ## Aqua / Mac
 ![Font Chooser (Aqua)](fontchooser-aqualookandfeel.png "Font Chooser (Aqua)")
 
+## Windows
+![Font Chooser (Windows)](fontchooser-windowslookandfeel.png "Font Chooser (Windows)")
+
 ## Motif / Common Desktop Environment
 ![Font Chooser (Motif)](fontchooser-motiflookandfeel.png "Font Chooser (Motif)")
 
