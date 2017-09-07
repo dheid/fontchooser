@@ -21,9 +21,9 @@ public class SearchListener extends KeyAdapter {
     @Override
     public void keyTyped(KeyEvent e) {
         JTextField searchField = (JTextField) e.getSource();
-        String searchString = searchField.getText();
+        String searchString = searchField.getText().toLowerCase(Locale.ENGLISH);
         Optional<String> first = fontFamilyNames.stream()
-            .filter(family -> family.toLowerCase(Locale.getDefault()).contains(searchString))
+            .filter(family -> family.toLowerCase(Locale.ENGLISH).contains(searchString))
             .findFirst();
         first.ifPresent(familyPane::setSelectedFamily);
     }
