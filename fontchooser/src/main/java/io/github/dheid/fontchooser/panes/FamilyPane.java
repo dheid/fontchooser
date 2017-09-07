@@ -8,6 +8,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
@@ -38,14 +39,14 @@ public class FamilyPane extends JPanel {
         initializeList(familyListModel);
 
         setMinimumSize(new Dimension(80, 50));
-        setPreferredSize(new Dimension(240, 150));
+        setPreferredSize(new Dimension(240, 100));
 
         setLayout(new GridBagLayout());
         addSearchField();
         addScrollPane();
     }
 
-    private void initializeList(DefaultListModel<String> familyListModel) {
+    private void initializeList(ListModel<String> familyListModel) {
         familyList.setModel(familyListModel);
         familyList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         familyList.setCellRenderer(new ToolTipCellRenderer());

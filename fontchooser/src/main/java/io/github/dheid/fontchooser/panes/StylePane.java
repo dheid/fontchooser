@@ -31,8 +31,8 @@ public class StylePane extends JScrollPane implements ChangeListener {
         styleList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         styleList.setCellRenderer(new ToolTipCellRenderer());
 
-        setMinimumSize(new Dimension(140, 120));
-        setPreferredSize(new Dimension(160, 150));
+        setMinimumSize(new Dimension(140, 50));
+        setPreferredSize(new Dimension(160, 100));
         setViewportView(styleList);
 
     }

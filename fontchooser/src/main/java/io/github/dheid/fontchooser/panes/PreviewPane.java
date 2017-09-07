@@ -1,33 +1,30 @@
 package io.github.dheid.fontchooser.panes;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import java.awt.BorderLayout;
-import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ResourceBundle;
 
-public class PreviewPane extends JPanel {
+public class PreviewPane extends JScrollPane {
 
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
 
-    private JLabel previewAreaLabel = new JLabel();
+    private final JTextArea previewText = new JTextArea();
 
     public PreviewPane() {
-        previewAreaLabel.setText(resourceBundle.getString("font.preview.text"));
-        previewAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-        setBackground(Color.WHITE);
-        setBorder(BorderFactory.createEtchedBorder());
+        previewText.setText(resourceBundle.getString("font.preview.text"));
+        previewText.setBorder(BorderFactory.createCompoundBorder(
+            previewText.getBorder(),
+            BorderFactory.createEmptyBorder(5, 5, 5, 5))
+        );
         setPreferredSize(new Dimension(200, 80));
-        setLayout(new BorderLayout());
-        add(previewAreaLabel);
+        setViewportView(previewText);
     }
 
     public void setPreviewFont(Font font) {
-        previewAreaLabel.setFont(font);
+        previewText.setFont(font);
     }
+
 }

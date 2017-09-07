@@ -6,9 +6,6 @@ allows users to select a font by selecting a font family name and the installed 
 ## Metal
 ![Font Chooser (Metal)](fontchooser-metallookandfeel.png "Font Chooser")
 
-## Nimbus
-![Font Chooser (Nimbus)](fontchooser-nimbuslookandfeel.png "Font Chooser")
-
 ## Aqua
 ![Font Chooser (Aqua)](fontchooser-aqualookandfeel.png "Font Chooser")
 

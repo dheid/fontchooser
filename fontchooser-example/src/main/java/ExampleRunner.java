@@ -23,6 +23,10 @@ public class ExampleRunner {
 
     public static void useLookAndFeel(Class<?> lookAndFeelClass) {
         String lookAndFeelName = lookAndFeelClass.getName();
+        useLookAndFeel(lookAndFeelName);
+    }
+
+    public static void useLookAndFeel(String lookAndFeelName) {
         try {
             UIManager.setLookAndFeel(lookAndFeelName);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {

@@ -33,8 +33,8 @@ public class SizePane extends JPanel {
 
     private void addSizeScrollPane() {
         JScrollPane sizeScrollPane = new JScrollPane();
-        sizeScrollPane.setMinimumSize(new Dimension(50, 120));
-        sizeScrollPane.setPreferredSize(new Dimension(60, 150));
+        sizeScrollPane.setMinimumSize(new Dimension(50, 50));
+        sizeScrollPane.setPreferredSize(new Dimension(60, 100));
         sizeScrollPane.setViewportView(sizeList);
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridy = 1;

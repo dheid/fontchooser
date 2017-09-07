@@ -1,12 +1,10 @@
-import apple.laf.AquaLookAndFeel;
 import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
 import io.github.dheid.fontchooser.FontChooser;
 
 import javax.imageio.ImageIO;
 import javax.swing.CellRendererPane;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -20,11 +18,10 @@ import java.util.Locale;
 
 public class ScreenshotMaker implements Runnable {
 
-    private static final Class<?>[] LOOK_AND_FEELS = {
-        MetalLookAndFeel.class,
-        NimbusLookAndFeel.class,
-        AquaLookAndFeel.class,
-        MotifLookAndFeel.class,
+    private static final String[] LOOK_AND_FEELS = {
+        UIManager.getCrossPlatformLookAndFeelClassName(),
+        UIManager.getSystemLookAndFeelClassName(),
+        MotifLookAndFeel.class.getName(),
     };
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
@@ -45,9 +42,9 @@ public class ScreenshotMaker implements Runnable {
     @Override
     public void run() {
 
-        Dimension size = new Dimension(600, 400);
-        for (Class<?> lookAndFeelClass : LOOK_AND_FEELS) {
-            ExampleRunner.useLookAndFeel(lookAndFeelClass);
+        Dimension size = new Dimension(575, 275);
+        for (String lookAndFeelClassName : LOOK_AND_FEELS) {
+            ExampleRunner.useLookAndFeel(lookAndFeelClassName);
             FontChooser fontChooser = new FontChooser(new Font("Helvetica", Font.PLAIN, 24));
             fontChooser.setBorder(new EmptyBorder(10, 10, 10, 10));
             fontChooser.setSize(size);
@@ -61,12 +58,18 @@ public class ScreenshotMaker implements Runnable {
 
             rendererPane.paintComponent(graphics, fontChooser, rendererPane, fontChooser.getBounds());
 
-            String pathname = "fontchooser-" + lookAndFeelClass.getSimpleName().toLowerCase(Locale.ENGLISH) + ".png";
+            String pathname = createFileName(lookAndFeelClassName);
             try {
                 ImageIO.write(image, "png", new File(pathname));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    private String createFileName(String lookAndFeelClassName) {
+        String[] lookAndFeelClassNameParts = lookAndFeelClassName.split("\\.");
+        String lookAndFeelName = lookAndFeelClassNameParts[lookAndFeelClassNameParts.length - 1].toLowerCase(Locale.ENGLISH);
+        return "fontchooser-" + lookAndFeelName + ".png";
     }
 }
