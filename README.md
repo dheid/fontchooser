@@ -4,14 +4,17 @@ Java does not provide a lightweight font chooser out of the box. This easy to us
 allows users to select a font by selecting a font family name and the installed font variants. Users are able to search
 for a font and insert their own preview text.
 
-## Metal
-![Font Chooser (Metal)](fontchooser-metallookandfeel.png "Font Chooser")
+## Cross Platform
+![Font Chooser (Cross Platform)](fontchooser-metallookandfeel.png "Font Chooser (Cross Platform)")
 
-## Aqua
-![Font Chooser (Aqua)](fontchooser-aqualookandfeel.png "Font Chooser")
+## GTK / Linux
+![Font Chooser (GTK)](fontchooser-gtklookandfeel.png "Font Chooser (GTK)")
 
-## Motif
-![Font Chooser (Motif)](fontchooser-motiflookandfeel.png "Font Chooser")
+## Aqua / Mac
+![Font Chooser (Aqua)](fontchooser-aqualookandfeel.png "Font Chooser (Aqua)")
+
+## Motif / Common Desktop Environment
+![Font Chooser (Motif)](fontchooser-motiflookandfeel.png "Font Chooser (Motif)")
 
 There are translations for the following languages:
 

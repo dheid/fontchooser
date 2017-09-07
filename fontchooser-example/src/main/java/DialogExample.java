@@ -1,6 +1,6 @@
 import io.github.dheid.fontchooser.FontDialog;
 
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.Frame;
 import java.lang.reflect.InvocationTargetException;
@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 public class DialogExample implements Runnable {
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-        ExampleRunner.useLookAndFeel(NimbusLookAndFeel.class);
+        ExampleRunner.useLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         ExampleRunner.invoke(new DialogExample());
     }
 

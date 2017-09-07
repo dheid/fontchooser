@@ -1,10 +1,7 @@
 import io.github.dheid.fontchooser.FontChooser;
 import io.github.dheid.fontchooser.model.FontSelectionModel;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.BorderLayout;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +11,7 @@ public class PanelExample implements Runnable {
     private final JLabel selection = new JLabel("Selected font will be displayed here");
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-        ExampleRunner.useLookAndFeel(MetalLookAndFeel.class);
+        ExampleRunner.useLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         ExampleRunner.invoke(new PanelExample());
     }
 
