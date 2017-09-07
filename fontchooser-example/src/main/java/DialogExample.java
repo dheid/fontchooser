@@ -1,4 +1,4 @@
-import io.github.dheid.fontchooser.FontChooserDialog;
+import io.github.dheid.fontchooser.FontDialog;
 
 import javax.swing.WindowConstants;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -14,7 +14,7 @@ public class DialogExample implements Runnable {
 
     @Override
     public void run() {
-        FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Select Font", true);
+        FontDialog dialog = new FontDialog((Frame) null, "Select Font", true);
         dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         dialog.setVisible(true);
         if (!dialog.isCancelSelected()) {

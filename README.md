@@ -1,6 +1,6 @@
-# Font Chooser
+# Java Swing Font Chooser Dialog and Panel
 
-Java does not provide a font chooser out of the box. This easy to use lightweight Java Swing font chooser component
+Java does not provide a lightweight font chooser out of the box. This easy to use Java Swing font chooser component
 allows users to select a font by selecting a font family name and the installed font variants.
 
 ## Metal
@@ -44,14 +44,14 @@ Include the following dependency to your project:
 <dependency>
     <groupId>io.github.dheid</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
  </dependency>
 ```
 
 Here is a simple example on how to use the font chooser dialog in your application:
 
 ```java
-FontChooserDialog dialog = new FontChooserDialog((Frame) null, "Font Dialog Example", true);
+FontDialog dialog = new FontDialog((Frame) null, "Font Dialog Example", true);
 dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 dialog.setVisible(true);
 if (!dialog.isCancelSelected()) {

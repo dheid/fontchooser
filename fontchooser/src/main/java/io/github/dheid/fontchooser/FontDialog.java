@@ -42,91 +42,92 @@ import java.util.ResourceBundle;
  *
  * @author Christos Bohoris
  */
-public class FontChooserDialog extends JDialog {
+public class FontDialog extends JDialog {
 
-    public FontChooserDialog() {
+    private final FontChooser chooser = new FontChooser();
+    private final JButton cancelButton = new JButton();
+    private final JButton okButton = new JButton();
+    private final ResourceBundle bundle = ResourceBundle.getBundle("FontDialog");
+
+    public FontDialog() {
         initDialog();
     }
 
-    public FontChooserDialog(Frame owner) {
+    public FontDialog(Frame owner) {
         super(owner);
         initDialog();
     }
 
-    public FontChooserDialog(Frame owner, boolean modal) {
+    public FontDialog(Frame owner, boolean modal) {
         super(owner, modal);
         initDialog();
     }
 
-    public FontChooserDialog(Frame owner, String title) {
+    public FontDialog(Frame owner, String title) {
         super(owner, title);
         initDialog();
     }
 
-    public FontChooserDialog(Frame owner, String title, boolean modal) {
+    public FontDialog(Frame owner, String title, boolean modal) {
         super(owner, title, modal);
         initDialog();
     }
 
-    public FontChooserDialog(Frame owner, String title, boolean modal, GraphicsConfiguration gc) {
+    public FontDialog(Frame owner, String title, boolean modal, GraphicsConfiguration gc) {
         super(owner, title, modal, gc);
         initDialog();
     }
 
-    public FontChooserDialog(Dialog owner) {
+    public FontDialog(Dialog owner) {
         super(owner);
         initDialog();
     }
 
-    public FontChooserDialog(Dialog owner, boolean modal) {
+    public FontDialog(Dialog owner, boolean modal) {
         super(owner, modal);
         initDialog();
     }
 
-    public FontChooserDialog(Dialog owner, String title) {
+    public FontDialog(Dialog owner, String title) {
         super(owner, title);
         initDialog();
     }
 
-    public FontChooserDialog(Dialog owner, String title, boolean modal) {
+    public FontDialog(Dialog owner, String title, boolean modal) {
         super(owner, title, modal);
         initDialog();
     }
 
-    public FontChooserDialog(Dialog owner, String title, boolean modal, GraphicsConfiguration gc) {
+    public FontDialog(Dialog owner, String title, boolean modal, GraphicsConfiguration gc) {
         super(owner, title, modal, gc);
         initDialog();
     }
 
-    public FontChooserDialog(Window owner) {
+    public FontDialog(Window owner) {
         super(owner);
         initDialog();
     }
 
-    public FontChooserDialog(Window owner, ModalityType modalityType) {
+    public FontDialog(Window owner, ModalityType modalityType) {
         super(owner, modalityType);
         initDialog();
     }
 
-    public FontChooserDialog(Window owner, String title) {
+    public FontDialog(Window owner, String title) {
         super(owner, title);
         initDialog();
     }
 
-    public FontChooserDialog(Window owner, String title, ModalityType modalityType) {
+    public FontDialog(Window owner, String title, ModalityType modalityType) {
         super(owner, title, modalityType);
         initDialog();
     }
 
-    public FontChooserDialog(Window owner, String title, ModalityType modalityType, GraphicsConfiguration gc) {
+    public FontDialog(Window owner, String title, ModalityType modalityType, GraphicsConfiguration gc) {
         super(owner, title, modalityType, gc);
         initDialog();
     }
 
-    private FontChooser chooser = new FontChooser();
-    private JButton cancelButton = new JButton();
-    private JButton okButton = new JButton();
-    private ResourceBundle bundle = ResourceBundle.getBundle("FontChooserDialog");
     private boolean cancelSelected;
 
     private void initDialog() {
