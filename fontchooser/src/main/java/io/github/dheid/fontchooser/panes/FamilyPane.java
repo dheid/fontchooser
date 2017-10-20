@@ -83,6 +83,10 @@ public class FamilyPane extends JPanel {
         familyList.addListSelectionListener(listener);
     }
 
+    public void removeListSelectionListener(ListSelectionListener listener) {
+        familyList.removeListSelectionListener(listener);
+    }
+
     public String getSelectedFamily() {
         return familyList.getSelectedValue();
     }

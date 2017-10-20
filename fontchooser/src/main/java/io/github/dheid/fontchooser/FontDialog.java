@@ -49,6 +49,7 @@ public class FontDialog extends JDialog {
     public static void showDialog(Component component) {
         FontDialog dialog = new FontDialog((Frame) null, "Select Font", true);
         dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        dialog.setSelectedFont(component.getFont());
         dialog.setVisible(true);
         if (!dialog.isCancelSelected()) {
             component.setFont(dialog.getSelectedFont());
@@ -187,6 +188,10 @@ public class FontDialog extends JDialog {
 
     public Font getSelectedFont() {
         return chooser.getSelectedFont();
+    }
+
+    public void setSelectedFont(Font font) {
+        chooser.setSelectedFont(font);
     }
 
     public boolean isCancelSelected() {

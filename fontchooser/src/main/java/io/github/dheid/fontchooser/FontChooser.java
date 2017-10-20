@@ -73,6 +73,10 @@ public class FontChooser extends JPanel implements FontContainer {
     private final StylePane stylePane = new StylePane();
     private final SizePane sizePane = new SizePane();
 
+    private final FamilyListSelectionListener familyPaneListener = new FamilyListSelectionListener(this);
+    private final StyleListSelectionListener stylePaneListener = new StyleListSelectionListener(this);
+    private final SizeListSelectionListener sizePaneListener = new SizeListSelectionListener(this);
+
     /**
      * Creates a FontChooser pane with an initial default Font
      * (Sans Serif, Plain, 12).
@@ -125,7 +129,13 @@ public class FontChooser extends JPanel implements FontContainer {
      */
     @Override
     public void setSelectedFont(Font font) {
+        familyPane.removeListSelectionListener(familyPaneListener);
+        stylePane.removeListSelectionListener(stylePaneListener);
+        sizePane.removeListSelectionListener(sizePaneListener);
+
         selectionModel.setSelectedFont(font);
+
+        initPanes();
     }
 
     /**
@@ -172,13 +182,13 @@ public class FontChooser extends JPanel implements FontContainer {
 
     private void initPanes() {
         familyPane.setSelectedFamily(selectionModel.getSelectedFontFamily());
-        familyPane.addListSelectionListener(new FamilyListSelectionListener(this));
+        familyPane.addListSelectionListener(familyPaneListener);
 
         stylePane.loadFamily(selectionModel.getSelectedFontFamily());
         stylePane.setSelectedStyle(selectionModel.getSelectedFontName());
-        stylePane.addListSelectionListener(new StyleListSelectionListener(this));
+        stylePane.addListSelectionListener(stylePaneListener);
 
-        sizePane.addListSelectionListener(new SizeListSelectionListener(this));
+        sizePane.addListSelectionListener(sizePaneListener);
         sizePane.setSelectedSize(selectionModel.getSelectedFontSize());
     }
 
