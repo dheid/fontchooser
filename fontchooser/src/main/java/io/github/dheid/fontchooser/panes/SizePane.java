@@ -103,6 +103,10 @@ public class SizePane extends JPanel {
         sizeList.addListSelectionListener(listener);
     }
 
+    public void removeListSelectionListener(ListSelectionListener listener) {
+        sizeList.removeListSelectionListener(listener);
+    }
+
     public void setSelectedSize(int size) {
         if (sizeListModel.contains(size)) {
             sizeList.setSelectedValue(size, true);

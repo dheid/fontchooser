@@ -41,6 +41,10 @@ public class StylePane extends JScrollPane implements ChangeListener {
         styleList.addListSelectionListener(listener);
     }
 
+    public void removeListSelectionListener(ListSelectionListener listener) {
+        styleList.removeListSelectionListener(listener);
+    }
+
     public void setSelectedStyle(String name) {
         styleList.setSelectedValue(name, true);
     }
