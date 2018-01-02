@@ -26,6 +26,7 @@ There are translations for the following languages:
 * English
 * German
 * Greek
+* Hungarian
 * Spanish
 * Finnish
 * French
