@@ -1,7 +1,6 @@
-import io.github.dheid.fontchooser.FontDialog;
+import de.daniel_heid.fontchooser.FontDialog;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.Frame;
 import java.lang.reflect.InvocationTargetException;
 

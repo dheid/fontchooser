@@ -1,8 +1,7 @@
-import io.github.dheid.fontchooser.FontChooser;
-import io.github.dheid.fontchooser.model.FontSelectionModel;
+import de.daniel_heid.fontchooser.FontChooser;
+import de.daniel_heid.fontchooser.model.FontSelectionModel;
 
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.BorderLayout;
 import java.lang.reflect.InvocationTargetException;
 

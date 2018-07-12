@@ -1,5 +1,5 @@
 import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
-import io.github.dheid.fontchooser.FontChooser;
+import de.daniel_heid.fontchooser.FontChooser;
 
 import javax.imageio.ImageIO;
 import javax.swing.CellRendererPane;

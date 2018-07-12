@@ -1,4 +1,4 @@
-import io.github.dheid.fontchooser.FontDialog;
+import de.daniel_heid.fontchooser.FontDialog;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
