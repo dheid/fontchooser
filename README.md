@@ -40,7 +40,7 @@ me if you have questions.
 
 [![Build Status](https://travis-ci.org/dheid/fontchooser.svg?branch=master)](https://travis-ci.org/dheid/fontchooser)
 [![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
-[![Coverage Status](https://coveralls.io/repos/github/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/github/dheid/fontchooser?branch=master)
+[![Coverage Status](https://coveralls.io/repos/gitlab/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/gitlab/dheid/fontchooser?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/)
 
 ## Building
@@ -86,10 +86,10 @@ You'll find more examples in the module fontchooser-example:
 
 ## Contributing
 
-Any help is welcome. Especially translations are very useful. You can [open bug reports or feature requests](https://github.com/dheid/fontchooser/issues) or
+Any help is welcome. Especially translations are very useful. You can [open bug reports or feature requests](https://gitlab.com/dheid/fontchooser/issues) or
 implement new features.
 
-1. [Fork it](https://github.com/dheid/fontchooser/fork)!
+1. Fork it
 2. Apply your changes and don't forget to add unit tests.
 3. Build using Maven and ensure, that the build was successful.
 3. Commit and push your changes.

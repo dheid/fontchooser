@@ -8,7 +8,7 @@
 
     <packaging>pom</packaging>
 
-    <url>http://dheid.github.io/fontchooser</url>
+    <url>https://gitlab.com/dheid/fontchooser</url>
 
     <name>Font Chooser Parent</name>
     <description>The parent POM for the Font Chooser submodules</description>
@@ -29,9 +29,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:dheid/fontchooser.git</connection>
-        <developerConnection>scm:git:git@github.com:dheid/fontchooser.git</developerConnection>
-        <url>git@github.com:dheid/fontchooser.git</url>
+        <connection>scm:git:git@gitlab.com:dheid/fontchooser.git</connection>
+        <developerConnection>scm:git:git@gitlab.com:dheid/fontchooser.git</developerConnection>
+        <url>git@gitlab.com:dheid/fontchooser.git</url>
         <tag>HEAD</tag>
     </scm>
 
