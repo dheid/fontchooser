@@ -1,6 +1,6 @@
 # Java Swing Font Chooser Dialog and Panel
 
-[![Build Status](https://gitlab.com/dheid/fontchooser/pipelines)](https://gitlab.com/dheid/fontchooser/badges/master/build.svg)
+[![Build Status](https://gitlab.com/dheid/fontchooser/badges/master/build.svg)](https://gitlab.com/dheid/fontchooser/pipelines)
 [![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
 [![Coverage Status](https://coveralls.io/repos/gitlab/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/gitlab/dheid/fontchooser?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/)
