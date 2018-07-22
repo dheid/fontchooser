@@ -1,13 +1,13 @@
-image: java:8
+image: openjdk:8
 
 variables:
   MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository -Dmaven.user.home=.m2"
 
 cache:
   paths:
     - .m2/repository/
-    - /root/.m2/wrapper/dists/
+    - .m2/wrapper/
     - fontchooser/target/
 
 build:
