@@ -4,7 +4,7 @@ Java does not provide a lightweight font chooser out of the box. This easy to us
 allows users to select a font by selecting a font family name and the installed font variants. Users are able to search
 for a font and insert their own preview text.
 
-This font chooser is fully Java 9 compatible.
+This font chooser is fully Java 18.9 compatible.
 
 ## Cross Platform
 ![Font Chooser (Cross Platform)](fontchooser-metallookandfeel.png "Font Chooser (Cross Platform)")
@@ -52,9 +52,9 @@ me if you have questions.
 Include the following dependency to your project:
 ```xml 
 <dependency>
-    <groupId>io.github.dheid</groupId>
+    <groupId>dr.jekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.3</version>
+    <version>2.4</version>
  </dependency>
 ```
 
