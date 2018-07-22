@@ -19,7 +19,7 @@ test:
   stage: test
   script:
     - ./mvnw $MAVEN_CLI_OPTS test
-    -cat fontchooser/target/site/jacoco/index.html
+    - cat fontchooser/target/site/jacoco/index.html
 
 deploy:
   stage: deploy
