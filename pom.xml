@@ -4,7 +4,7 @@
 
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser-parent</artifactId>
-    <version>2.4</version>
+    <version>2.5-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -32,7 +32,7 @@
         <connection>scm:git:git@gitlab.com:dheid/fontchooser.git</connection>
         <developerConnection>scm:git:git@gitlab.com:dheid/fontchooser.git</developerConnection>
         <url>git@gitlab.com:dheid/fontchooser.git</url>
-        <tag>fontchooser-parent-2.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
