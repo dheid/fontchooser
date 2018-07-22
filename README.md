@@ -41,11 +41,24 @@ me if you have questions.
 [![Build Status](https://travis-ci.org/dheid/fontchooser.svg?branch=master)](https://travis-ci.org/dheid/fontchooser)
 [![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
 [![Coverage Status](https://coveralls.io/repos/gitlab/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/gitlab/dheid/fontchooser?branch=master)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dheid/fontchooser/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/)
 
 ## Building
 
-    mvn install
+Please use the included Maven wrapper to build the JAR.
+
+    ./mvnw package
+    
+After that you can include the file `fontchooser/target/fontchooser-VERSION.jar` into your project (replace VERSION with
+the current project version).
+
+## Install to local Maven repository
+
+To test a version locally, please execute
+
+    ./mvnw install
+    
+This will install the version to your local repository. You can now include it using Maven (see below).
 
 ## Usage
 
@@ -93,7 +106,7 @@ implement new features.
 2. Apply your changes and don't forget to add unit tests.
 3. Build using Maven and ensure, that the build was successful.
 3. Commit and push your changes.
-4. Submit a [pull request](https://github.com/dheid/fontchooser/pulls) 
+4. Submit a pull request.
 
 ## Credits
 
