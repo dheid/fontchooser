@@ -52,7 +52,7 @@ me if you have questions.
 Include the following dependency to your project:
 ```xml 
 <dependency>
-    <groupId>dr.jekyll</groupId>
+    <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
     <version>2.4</version>
  </dependency>

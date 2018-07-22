@@ -1,4 +1,4 @@
-import de.daniel_heid.fontchooser.FontDialog;
+import org.drjekyll.fontchooser.FontDialog;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;

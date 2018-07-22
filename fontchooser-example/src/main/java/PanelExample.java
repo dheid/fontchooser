@@ -1,5 +1,5 @@
-import de.daniel_heid.fontchooser.FontChooser;
-import de.daniel_heid.fontchooser.model.FontSelectionModel;
+import org.drjekyll.fontchooser.FontChooser;
+import org.drjekyll.fontchooser.model.FontSelectionModel;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
