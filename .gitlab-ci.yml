@@ -7,8 +7,8 @@ variables:
 cache:
   paths:
     - .m2/repository/
-    - .m2/wrapper/dists/
-    - target/
+    - /root/.m2/wrapper/dists/
+    - fontchooser/target/
 
 build:
   stage: build
