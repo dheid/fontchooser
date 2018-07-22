@@ -97,14 +97,7 @@ You'll find more examples in the module fontchooser-example:
 
 ## Contributing
 
-Any help is welcome. Especially translations are very useful. You can [open bug reports or feature requests](https://gitlab.com/dheid/fontchooser/issues) or
-implement new features.
-
-1. Fork it
-2. Apply your changes and don't forget to add unit tests.
-3. Build using Maven and ensure, that the build was successful.
-3. Commit and push your changes.
-4. Submit a pull request.
+Please see here: [Contributing](CONTRIBUTING.md)
 
 ## Credits
 
