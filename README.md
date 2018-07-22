@@ -1,5 +1,10 @@
 # Java Swing Font Chooser Dialog and Panel
 
+[![Build Status](https://gitlab.com/dheid/fontchooser/pipelines)](https://gitlab.com/dheid/fontchooser/badges/master/build.svg)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
+[![Coverage Status](https://coveralls.io/repos/gitlab/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/gitlab/dheid/fontchooser?branch=master)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/)
+
 Java does not provide a lightweight font chooser out of the box. This easy to use Java Swing font chooser component
 allows users to select a font by selecting a font family name and the installed font variants. Users are able to search
 for a font and insert their own preview text.
@@ -35,13 +40,6 @@ There are translations for the following languages:
 
 Font Chooser is an open source project and completely free. I appreciate improvements or extensions. Please contact
 me if you have questions.
-
-## Continuous Integration
-
-[![Build Status](https://travis-ci.org/dheid/fontchooser.svg?branch=master)](https://travis-ci.org/dheid/fontchooser)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/dheid/fontchooser/master.svg?label=windows)](https://ci.appveyor.com/project/dheid/fontchooser/branch/master)
-[![Coverage Status](https://coveralls.io/repos/gitlab/dheid/fontchooser/badge.svg?branch=master)](https://coveralls.io/gitlab/dheid/fontchooser?branch=master)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.drjekyll/fontchooser/)
 
 ## Building
 
