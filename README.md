@@ -1,3 +1,5 @@
+![Java Swing Font Chooser Logo](logo.svg)
+
 # Java Swing Font Chooser Dialog and Panel
 
 [![pipeline status](https://gitlab.com/dheid/fontchooser/badges/master/pipeline.svg)](https://gitlab.com/dheid/fontchooser/commits/master)
