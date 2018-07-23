@@ -4,7 +4,13 @@ import java.util.ResourceBundle;
 
 public class ResourceBundleUtil {
 
-    public static char getFirstChar(ResourceBundle resourceBundle, String key) {
+    private final ResourceBundle resourceBundle;
+
+    public ResourceBundleUtil(ResourceBundle resourceBundle) {
+        this.resourceBundle = resourceBundle;
+    }
+
+    public char getFirstChar(String key) {
         String bundleString = resourceBundle.getString(key);
         return bundleString.charAt(0);
     }

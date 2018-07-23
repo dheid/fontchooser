@@ -21,19 +21,8 @@ package org.drjekyll.fontchooser;
 
 import org.drjekyll.fontchooser.util.ResourceBundleUtil;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dialog;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
-import java.awt.Window;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ResourceBundle;
@@ -60,6 +49,7 @@ public class FontDialog extends JDialog {
     private final JButton cancelButton = new JButton();
     private final JButton okButton = new JButton();
     private final ResourceBundle bundle = ResourceBundle.getBundle("FontDialog");
+    private final ResourceBundleUtil resourceBundleUtil = new ResourceBundleUtil(bundle);
 
     public FontDialog() {
         initDialog();
@@ -168,14 +158,14 @@ public class FontDialog extends JDialog {
         controlPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
         add(controlPanel, BorderLayout.PAGE_END);
 
-        okButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle, "action.ok.mnemonic"));
+        okButton.setMnemonic(resourceBundleUtil.getFirstChar("action.ok.mnemonic"));
         okButton.setText(bundle.getString("action.ok"));
         okButton.addActionListener(event -> {
             dispose();
         });
         controlPanel.add(okButton);
 
-        cancelButton.setMnemonic(ResourceBundleUtil.getFirstChar(bundle, "action.cancel.mnemonic"));
+        cancelButton.setMnemonic(resourceBundleUtil.getFirstChar("action.cancel.mnemonic"));
         cancelButton.setText(bundle.getString("action.cancel"));
         cancelButton.addActionListener(event -> {
             cancelSelected = true;

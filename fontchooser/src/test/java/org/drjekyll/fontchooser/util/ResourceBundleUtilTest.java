@@ -16,7 +16,7 @@ public class ResourceBundleUtilTest {
     @Test
     public void returnsFirstChar() {
 
-        char firstChar = ResourceBundleUtil.getFirstChar(resourceBundle, KEY);
+        char firstChar = new ResourceBundleUtil(resourceBundle).getFirstChar(KEY);
         assertThat(firstChar, is('s'));
 
     }

@@ -30,15 +30,9 @@ import org.drjekyll.fontchooser.panes.SizePane;
 import org.drjekyll.fontchooser.panes.StylePane;
 import org.drjekyll.fontchooser.util.ResourceBundleUtil;
 
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.event.ChangeListener;
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 import java.util.ResourceBundle;
 
 
@@ -58,7 +52,9 @@ public class FontChooser extends JPanel implements FontContainer {
 
     private FontSelectionModel selectionModel;
 
-    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
+    private final ResourceBundle resourceBundle;
+
+    private final ResourceBundleUtil resourceBundleUtil;
 
     private final JLabel familyLabel = new JLabel();
     private final JLabel styleLabel = new JLabel();
@@ -101,6 +97,8 @@ public class FontChooser extends JPanel implements FontContainer {
      * @param model the {@code FontSelectionModel} to be used
      */
     public FontChooser(FontSelectionModel model) {
+        resourceBundle = ResourceBundle.getBundle("FontChooser");
+        resourceBundleUtil = new ResourceBundleUtil(resourceBundle);
         setSelectionModel(model);
         setLayout(new BorderLayout());
         addComponents();
@@ -220,7 +218,7 @@ public class FontChooser extends JPanel implements FontContainer {
     }
 
     private void addPreviewLabel() {
-        previewLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle, "font.preview.mnemonic"));
+        previewLabel.setDisplayedMnemonic(resourceBundleUtil.getFirstChar("font.preview.mnemonic"));
         previewLabel.setText(resourceBundle.getString("font.preview"));
     }
 
@@ -257,7 +255,7 @@ public class FontChooser extends JPanel implements FontContainer {
 
     private void addSizeLabel() {
         sizeLabel.setLabelFor(sizePane);
-        sizeLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle, "font.size.mnemonic"));
+        sizeLabel.setDisplayedMnemonic(resourceBundleUtil.getFirstChar("font.size.mnemonic"));
         sizeLabel.setText(resourceBundle.getString("font.size"));
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
@@ -267,7 +265,7 @@ public class FontChooser extends JPanel implements FontContainer {
 
     private void addStyleLabel() {
         styleLabel.setLabelFor(stylePane);
-        styleLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle, "font.style.mnemonic"));
+        styleLabel.setDisplayedMnemonic(resourceBundleUtil.getFirstChar("font.style.mnemonic"));
         styleLabel.setText(resourceBundle.getString("font.style"));
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
@@ -281,7 +279,7 @@ public class FontChooser extends JPanel implements FontContainer {
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new Insets(0, 0, 5, DEFAULT_SPACE);
         fontPanel.add(familyLabel, gridBagConstraints);
-        familyLabel.setDisplayedMnemonic(ResourceBundleUtil.getFirstChar(resourceBundle, "font.family.mnemonic"));
+        familyLabel.setDisplayedMnemonic(resourceBundleUtil.getFirstChar("font.family.mnemonic"));
         familyLabel.setText(resourceBundle.getString("font.family"));
     }
 
