@@ -25,9 +25,6 @@ This font chooser is fully Java 18.9 compatible.
 ## Windows
 ![Font Chooser (Windows)](fontchooser-windowslookandfeel.png "Font Chooser (Windows)")
 
-## Motif / Common Desktop Environment
-![Font Chooser (Motif)](fontchooser-motiflookandfeel.png "Font Chooser (Motif)")
-
 There are translations for the following languages:
 
 * English

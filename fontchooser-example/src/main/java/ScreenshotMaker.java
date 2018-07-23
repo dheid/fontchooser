@@ -1,15 +1,9 @@
-import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
 import org.drjekyll.fontchooser.FontChooser;
 
 import javax.imageio.ImageIO;
-import javax.swing.CellRendererPane;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -20,8 +14,7 @@ public class ScreenshotMaker implements Runnable {
 
     private static final String[] LOOK_AND_FEELS = {
         UIManager.getCrossPlatformLookAndFeelClassName(),
-        UIManager.getSystemLookAndFeelClassName(),
-        MotifLookAndFeel.class.getName(),
+        UIManager.getSystemLookAndFeelClassName()
     };
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
