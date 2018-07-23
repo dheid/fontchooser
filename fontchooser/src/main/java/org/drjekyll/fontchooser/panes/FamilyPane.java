@@ -48,10 +48,10 @@ public class FamilyPane extends JPanel {
         gridBagConstraints.weightx = 1.0;
 
         JTextField searchField = new JTextField();
-        searchField.setBorder(new JScrollPane().getBorder());
+        searchField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         searchField.requestFocus();
         searchField.addKeyListener(searchListener);
-        add(searchField, gridBagConstraints);
+        add(new JScrollPane(searchField), gridBagConstraints);
     }
 
     private void addScrollPane() {
