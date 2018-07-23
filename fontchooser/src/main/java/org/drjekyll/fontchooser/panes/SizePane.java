@@ -1,19 +1,8 @@
 package org.drjekyll.fontchooser.panes;
 
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.ListSelectionModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 
 public class SizePane extends JPanel {
 
@@ -57,6 +46,9 @@ public class SizePane extends JPanel {
         int spinnerHeight = (int) sizeSpinner.getPreferredSize().getHeight();
         sizeSpinner.setPreferredSize(new Dimension(60, spinnerHeight));
         sizeSpinner.setModel(new SpinnerNumberModel(12, 6, 128, 1));
+        JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) sizeSpinner.getEditor();
+        JFormattedTextField textField = editor.getTextField();
+        textField.setBorder(new JScrollPane().getBorder());
         sizeSpinner.addChangeListener(event -> {
 
             Integer value = (Integer) sizeSpinner.getValue();
