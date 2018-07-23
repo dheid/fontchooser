@@ -3,25 +3,14 @@ package org.drjekyll.fontchooser.panes;
 import org.drjekyll.fontchooser.FontFamilies;
 import org.drjekyll.fontchooser.FontFamily;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.ListModel;
-import javax.swing.ListSelectionModel;
+import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 
 
 public class FamilyPane extends JPanel {
 
     private final JList<String> familyList = new JList<>();
-
-    private JTextField searchField;
 
     private final SearchListener searchListener;
 
@@ -58,10 +47,11 @@ public class FamilyPane extends JPanel {
         gridBagConstraints.insets = new Insets(0, 0, 5, 0);
         gridBagConstraints.weightx = 1.0;
 
-        searchField = new JTextField();
+        JTextField searchField = new JTextField();
+        searchField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         searchField.requestFocus();
         searchField.addKeyListener(searchListener);
-        add(searchField, gridBagConstraints);
+        add(new JScrollPane(searchField), gridBagConstraints);
     }
 
     private void addScrollPane() {
