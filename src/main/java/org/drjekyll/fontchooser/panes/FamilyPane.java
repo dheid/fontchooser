@@ -18,6 +18,8 @@ import org.drjekyll.fontchooser.FontFamily;
 
 public class FamilyPane extends JPanel {
 
+    private static final long serialVersionUID = 5705429171724237594L;
+
     private final JList<String> familyList = new JList<>();
 
     private final SearchListener searchListener;

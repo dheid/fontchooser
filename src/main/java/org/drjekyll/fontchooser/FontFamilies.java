@@ -17,7 +17,7 @@ public class FontFamilies implements Iterable<FontFamily> {
         return INSTANCE;
     }
 
-    private Map<String, FontFamily> families = new TreeMap<>();
+    private final Map<String, FontFamily> families = new TreeMap<>();
 
     public void add(Font font) {
         String family = font.getFamily();

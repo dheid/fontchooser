@@ -29,6 +29,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionListener;
 import org.drjekyll.fontchooser.listeners.FamilyListSelectionListener;
 import org.drjekyll.fontchooser.listeners.SizeListSelectionListener;
 import org.drjekyll.fontchooser.listeners.StyleListSelectionListener;
@@ -51,9 +52,12 @@ import org.drjekyll.fontchooser.util.ResourceBundleUtil;
 public class FontChooser extends JPanel implements FontContainer {
 
     private static final int DEFAULT_FONT_SIZE = 12;
+
     private static final int DEFAULT_SPACE = 11;
 
     private static final String SELECTION_MODEL_PROPERTY = "selectionModel";
+
+    private static final long serialVersionUID = -1587096935072345808L;
 
     private FontSelectionModel selectionModel;
 
@@ -62,25 +66,33 @@ public class FontChooser extends JPanel implements FontContainer {
     private final ResourceBundleUtil resourceBundleUtil;
 
     private final JLabel familyLabel = new JLabel();
+
     private final JLabel styleLabel = new JLabel();
+
     private final JLabel sizeLabel = new JLabel();
+
     private final JLabel previewLabel = new JLabel();
 
     private final JPanel fontPanel = new JPanel();
+
     private final JPanel previewPanel = new JPanel();
 
     private final FamilyPane familyPane = new FamilyPane();
+
     private final PreviewPane previewPane = new PreviewPane();
+
     private final StylePane stylePane = new StylePane();
+
     private final SizePane sizePane = new SizePane();
 
-    private final FamilyListSelectionListener familyPaneListener = new FamilyListSelectionListener(this);
-    private final StyleListSelectionListener stylePaneListener = new StyleListSelectionListener(this);
-    private final SizeListSelectionListener sizePaneListener = new SizeListSelectionListener(this);
+    private final ListSelectionListener familyPaneListener = new FamilyListSelectionListener(this);
+
+    private final ListSelectionListener stylePaneListener = new StyleListSelectionListener(this);
+
+    private final ListSelectionListener sizePaneListener = new SizeListSelectionListener(this);
 
     /**
-     * Creates a FontChooser pane with an initial default Font
-     * (Sans Serif, Plain, 12).
+     * Creates a FontChooser pane with an initial default Font (Sans Serif, Plain, 12).
      */
     public FontChooser() {
         this(new Font(Font.SANS_SERIF, Font.PLAIN, DEFAULT_FONT_SIZE));

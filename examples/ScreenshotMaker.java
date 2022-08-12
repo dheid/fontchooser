@@ -64,7 +64,7 @@ public class ScreenshotMaker implements Runnable {
         }
     }
 
-    private String createFileName(String lookAndFeelClassName) {
+    private static String createFileName(String lookAndFeelClassName) {
         String[] lookAndFeelClassNameParts = lookAndFeelClassName.split("\\.");
         String lookAndFeelName = lookAndFeelClassNameParts[lookAndFeelClassNameParts.length - 1].toLowerCase(Locale.ENGLISH);
         return "fontchooser-" + lookAndFeelName + ".png";

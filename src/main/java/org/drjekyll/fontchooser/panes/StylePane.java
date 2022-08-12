@@ -17,6 +17,8 @@ import org.drjekyll.fontchooser.model.FontSelectionModel;
 
 public class StylePane extends JScrollPane implements ChangeListener {
 
+    private static final long serialVersionUID = -176731082795772255L;
+
     private final JList<String> styleList = new JList<>();
 
     private final DefaultListModel<String> styleListModel;

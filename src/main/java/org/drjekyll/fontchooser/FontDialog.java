@@ -38,27 +38,32 @@ import javax.swing.WindowConstants;
 import org.drjekyll.fontchooser.util.ResourceBundleUtil;
 
 /**
- * A dialog containing a {@code FontChooser} as well as OK and
- * Cancel buttons.
+ * A dialog containing a {@code FontChooser} as well as OK and Cancel buttons.
  *
  * @author Christos Bohoris
  */
 public class FontDialog extends JDialog {
+
+    private static final long serialVersionUID = -5545636367279574840L;
 
     public static void showDialog(Component component) {
         FontDialog dialog = new FontDialog((Frame) null, "Select Font", true);
         dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         dialog.setSelectedFont(component.getFont());
         dialog.setVisible(true);
-        if (!dialog.isCancelSelected()) {
+        if (!dialog.cancelSelected) {
             component.setFont(dialog.getSelectedFont());
         }
     }
 
     private final FontChooser chooser = new FontChooser();
+
     private final JButton cancelButton = new JButton();
+
     private final JButton okButton = new JButton();
+
     private final ResourceBundle bundle = ResourceBundle.getBundle("FontDialog");
+
     private final ResourceBundleUtil resourceBundleUtil = new ResourceBundleUtil(bundle);
 
     public FontDialog() {
@@ -170,9 +175,7 @@ public class FontDialog extends JDialog {
 
         okButton.setMnemonic(resourceBundleUtil.getFirstChar("action.ok.mnemonic"));
         okButton.setText(bundle.getString("action.ok"));
-        okButton.addActionListener(event -> {
-            dispose();
-        });
+        okButton.addActionListener(event -> dispose());
         controlPanel.add(okButton);
 
         cancelButton.setMnemonic(resourceBundleUtil.getFirstChar("action.cancel.mnemonic"));

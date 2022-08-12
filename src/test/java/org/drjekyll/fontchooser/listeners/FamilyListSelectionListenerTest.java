@@ -44,8 +44,6 @@ public class FamilyListSelectionListenerTest {
     @Test
     public void updatesCurrentFont() {
 
-        Font expectedFont = new Font(NAME, STYLE, (int) SIZE);
-
         when(fontContainer.getSelectedSize()).thenReturn(SIZE);
         when(fontContainer.getSelectedFont()).thenReturn(font);
         when(fontContainer.getSelectedFamily()).thenReturn(NAME);
@@ -56,7 +54,7 @@ public class FamilyListSelectionListenerTest {
         verify(fontContainer).setSelectedFont(fontArgumentCaptor.capture());
 
         Font actualFont = fontArgumentCaptor.getValue();
-        assertThat(actualFont).isEqualTo(expectedFont);
+        assertThat(actualFont).isEqualTo(new Font(NAME, STYLE, (int) SIZE));
 
         verify(fontContainer).setPreviewFont(actualFont);
 

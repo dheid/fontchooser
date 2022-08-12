@@ -18,8 +18,12 @@ import javax.swing.event.ListSelectionListener;
 
 public class SizePane extends JPanel {
 
+    private static final long serialVersionUID = -2849151625253919609L;
+
     private final JList<Integer> sizeList = new JList<>();
+
     private final JSpinner sizeSpinner = new JSpinner();
+
     private final DefaultListModel<Integer> sizeListModel = new DefaultListModel<>();
 
     public SizePane() {

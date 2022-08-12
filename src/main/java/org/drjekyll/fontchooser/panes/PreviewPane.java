@@ -9,11 +9,12 @@ import javax.swing.JTextArea;
 
 public class PreviewPane extends JScrollPane {
 
-    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
+    private static final long serialVersionUID = -854781598723857579L;
 
     private final JTextArea previewText = new JTextArea();
 
     public PreviewPane() {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
         previewText.setText(resourceBundle.getString("font.preview.text"));
         previewText.setBorder(BorderFactory.createCompoundBorder(
             previewText.getBorder(),
