@@ -1,11 +1,11 @@
 # Contributing
 
 Any help is welcome. Especially translations are very useful. You can
-[open bug reports or feature requests](https://gitlab.com/dheid/fontchooser/issues) or
+[open bug reports or feature requests](https://github.com/dheid/fontchooser/issues) or
 implement new features.
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. 
+email, or any other method with the owners of this repository before making a change.
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
