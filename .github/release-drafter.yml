@@ -1,6 +1,5 @@
-name-template: $NEXT_PATCH_VERSION
-tag-template: $NEXT_PATCH_VERSION
-version-template: $MAJOR.$MINOR.$PATCH
+name-template: 'v$RESOLVED_VERSION 🌈'
+tag-template: 'v$RESOLVED_VERSION'
 
 categories:
   - title: 💥 Breaking changes
