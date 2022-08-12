@@ -20,6 +20,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - run: mvn -B verify
+      - id: version
+        run: |
+          VERSION=$( mvn -B help:evaluate -Dexpression=project.version -q -DforceStdout )
+          echo "::set-output name=version::$VERSION"
       - uses: release-drafter/release-drafter@v5
+        with:
+          version: ${{ steps.version.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
