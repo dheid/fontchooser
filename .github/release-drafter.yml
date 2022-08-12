@@ -1,5 +1,6 @@
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
+name-template: $NEXT_PATCH_VERSION
+tag-template: $NEXT_PATCH_VERSION
+version-template: $MAJOR.$MINOR.$PATCH
 
 categories:
   - title: 💥 Breaking changes
@@ -33,7 +34,7 @@ categories:
   - title: 🌐 Localization and translation
     labels:
       - localization
-  - title: 👷 Changes for plugin developers
+  - title: 👷 Changes for developers
     labels:
       - developer
   - title: 📝 Documentation updates
