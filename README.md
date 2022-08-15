@@ -74,8 +74,8 @@ implementation("org.drjekyll:fontchooser:2.5.0")
 If you want to apply a font to a specific component, e.g. a text area, simply use
 
 ```java
-JTextArea textArea=new JTextArea();
-    FontDialog.showDialog(textArea);
+JTextArea textArea = new JTextArea();
+FontDialog.showDialog(textArea);
 ```
 
 This will display the modal font dialog and apply the font to the component, if the user clicked OK.
@@ -83,12 +83,12 @@ This will display the modal font dialog and apply the font to the component, if 
 Here is another simple example on how to use the font chooser dialog in your application:
 
 ```java
-FontDialog dialog=new FontDialog((Frame)null,"Font Dialog Example",true);
-    dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-    dialog.setVisible(true);
-    if(!dialog.isCancelSelected()){
-    System.out.printf("Selected font is: %s%n",dialog.getSelectedFont());
-    }                                                               
+FontDialog dialog = new FontDialog((Frame)null,"Font Dialog Example",true);
+dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+dialog.setVisible(true);
+if(!dialog.isCancelSelected()){
+  System.out.printf("Selected font is: %s%n",dialog.getSelectedFont());
+}                                                               
 ```
 
 You'll find more examples in the module fontchooser-example:
