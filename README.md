@@ -4,6 +4,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/org.drjekyll/fontchooser.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.drjekyll%22%20AND%20a:%22fontchooser%22)
 [![Java CI with Maven](https://github.com/dheid/fontchooser/actions/workflows/build.yml/badge.svg)](https://github.com/dheid/fontchooser/actions/workflows/build.yml)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W3EER56)
 
 Java does not provide a lightweight font chooser out of the box. This easy to use Java Swing font chooser component
 allows users to select a font by selecting a font family name and the installed font variants. Users are able to search
