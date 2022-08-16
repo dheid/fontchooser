@@ -56,20 +56,20 @@ Include the following dependency to your project:
 <dependency>
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.5.0</version>
+    <version>2.5.1</version>
  </dependency>
 ```
 
 or Gradle with Groovy DSL:
 
 ```groovy
-implementation 'org.drjekyll:fontchooser:2.5.0'
+implementation 'org.drjekyll:fontchooser:2.5.1'
 ```
 
 or Gradle with Kotlin DSL:
 
 ```kotlin
-implementation("org.drjekyll:fontchooser:2.5.0")
+implementation("org.drjekyll:fontchooser:2.5.1")
 ```
 
 If you want to apply a font to a specific component, e.g. a text area, simply use
@@ -110,7 +110,7 @@ This will install the version to your local repository. You can now include it:
 <dependency>
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
+    <version>2.5.2-SNAPSHOT</version>
  </dependency>
 ```
 
@@ -145,7 +145,7 @@ https://www.gnu.org/licenses/lgpl-3.0.en.html
 
 ## :loudspeaker: Release Notes
 
-### 2.5.0
+### 2.5.1
 
 * Introduced Lombok
 * Migrated to JUnit 5
