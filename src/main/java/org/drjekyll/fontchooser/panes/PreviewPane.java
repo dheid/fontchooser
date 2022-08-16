@@ -16,12 +16,23 @@ public class PreviewPane extends JScrollPane {
     public PreviewPane() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("FontChooser");
         previewText.setText(resourceBundle.getString("font.preview.text"));
+        setPreviewTextBorder();
+        setPreferredSize(new Dimension(200, 80));
+        setViewportView(previewText);
+    }
+
+    @Override
+    public void updateUI() {
+        super.updateUI();
+        setPreviewTextBorder();
+    }
+
+    private void setPreviewTextBorder() {
+        if (previewText == null) return;
         previewText.setBorder(BorderFactory.createCompoundBorder(
             previewText.getBorder(),
             BorderFactory.createEmptyBorder(5, 5, 5, 5))
         );
-        setPreferredSize(new Dimension(200, 80));
-        setViewportView(previewText);
     }
 
     public void setPreviewFont(Font font) {
