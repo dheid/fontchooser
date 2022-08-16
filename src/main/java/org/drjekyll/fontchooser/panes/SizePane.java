@@ -79,7 +79,7 @@ public class SizePane extends JPanel {
     private void setupSpinnerEditor(JSpinner spinner) {
         JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) spinner.getEditor();
         JFormattedTextField textField = editor.getTextField();
-        textField.setBorder(new JScrollPane().getBorder());
+        textField.setBorder(BorderWrapper.makeNonUIResource(new JScrollPane().getBorder()));
     }
 
     private void initSizeList() {
