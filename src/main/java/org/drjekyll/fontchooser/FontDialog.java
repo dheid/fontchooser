@@ -151,7 +151,6 @@ public class FontDialog extends JDialog {
         initComponents();
         getRootPane().setDefaultButton(okButton);
 
-        cancelButton.addActionListener(event -> cancelSelected = true);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
