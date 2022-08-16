@@ -157,6 +157,7 @@ public class FontDialog extends JDialog {
                 cancelSelected = true;
             }
         });
+        pack();
     }
 
     private void initComponents() {
@@ -184,8 +185,6 @@ public class FontDialog extends JDialog {
             dispose();
         });
         controlPanel.add(cancelButton);
-
-        pack();
     }
 
     public Font getSelectedFont() {
