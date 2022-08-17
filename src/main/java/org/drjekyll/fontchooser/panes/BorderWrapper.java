@@ -1,10 +1,11 @@
 package org.drjekyll.fontchooser.panes;
 
-import lombok.RequiredArgsConstructor;
-
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
 import javax.swing.border.Border;
 import javax.swing.plaf.UIResource;
-import java.awt.*;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 class BorderWrapper implements Border {
@@ -12,7 +13,9 @@ class BorderWrapper implements Border {
     private final Border border;
 
     public static Border makeNonUIResource(Border border) {
-        if (border == null || border instanceof UIResource) return null;
+        if (border == null || border instanceof UIResource) {
+            return null;
+        }
         return new BorderWrapper(border);
     }
 

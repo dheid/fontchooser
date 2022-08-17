@@ -76,7 +76,7 @@ public class SizePane extends JPanel {
         });
     }
 
-    private void setupSpinnerEditor(JSpinner spinner) {
+    private static void setupSpinnerEditor(JSpinner spinner) {
         JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) spinner.getEditor();
         JFormattedTextField textField = editor.getTextField();
         textField.setBorder(BorderWrapper.makeNonUIResource(new JScrollPane().getBorder()));
@@ -114,7 +114,7 @@ public class SizePane extends JPanel {
     @Override
     public void updateUI() {
         super.updateUI();
-        if (sizeSpinner != null){
+        if (sizeSpinner != null) {
             setupSpinnerEditor(sizeSpinner);
         }
     }

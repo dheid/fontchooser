@@ -28,11 +28,10 @@ public class PreviewPane extends JScrollPane {
     }
 
     private void setPreviewTextBorder() {
-        if (previewText == null) return;
-        previewText.setBorder(BorderFactory.createCompoundBorder(
-            previewText.getBorder(),
-            BorderFactory.createEmptyBorder(5, 5, 5, 5))
-        );
+        if (previewText == null) {
+            return;
+        }
+        previewText.setBorder(BorderFactory.createCompoundBorder(previewText.getBorder(), BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
     public void setPreviewFont(Font font) {

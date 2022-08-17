@@ -56,20 +56,20 @@ Include the following dependency to your project:
 <dependency>
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.5.1</version>
+    <version>2.5.2</version>
  </dependency>
 ```
 
 or Gradle with Groovy DSL:
 
 ```groovy
-implementation 'org.drjekyll:fontchooser:2.5.1'
+implementation 'org.drjekyll:fontchooser:2.5.2'
 ```
 
 or Gradle with Kotlin DSL:
 
 ```kotlin
-implementation("org.drjekyll:fontchooser:2.5.1")
+implementation("org.drjekyll:fontchooser:2.5.2")
 ```
 
 If you want to apply a font to a specific component, e.g. a text area, simply use
@@ -110,20 +110,20 @@ This will install the version to your local repository. You can now include it:
 <dependency>
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.5.2-SNAPSHOT</version>
+    <version>2.5.3-SNAPSHOT</version>
  </dependency>
 ```
 
 or Gradle with Groovy DSL:
 
 ```groovy
-implementation 'org.drjekyll:fontchooser:2.5.1-SNAPSHOT'
+implementation 'org.drjekyll:fontchooser:2.5.3-SNAPSHOT'
 ```
 
 or Gradle with Kotlin DSL:
 
 ```kotlin
-implementation("org.drjekyll:fontchooser:2.5.1-SNAPSHOT")
+implementation("org.drjekyll:fontchooser:2.5.3-SNAPSHOT")
 ```
 
 ## :handshake: Contributing and Credits
@@ -135,7 +135,7 @@ This is a major rewrite of the JFontChooser component, originally written by Dr 
 ## :notebook: Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see
-the [tags on this repository](https://github.com/dheid/friendlycaptcha/tags).
+the [tags on this repository](https://github.com/dheid/fontchooser/tags).
 
 ## :scroll: License
 
@@ -144,6 +144,10 @@ Version 3, 29 June 2007
 https://www.gnu.org/licenses/lgpl-3.0.en.html
 
 ## :loudspeaker: Release Notes
+
+### 2.5.2
+
+This version supports [Darklaf](https://github.com/weisJ/darklaf) now.
 
 ### 2.5.1
 
