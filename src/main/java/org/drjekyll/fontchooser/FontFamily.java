@@ -2,12 +2,13 @@ package org.drjekyll.fontchooser;
 
 import java.awt.Font;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.TreeSet;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class FontFamily implements Iterable<Font> {
+@Getter
+public class FontFamily {
 
     private final String name;
 
@@ -21,8 +22,4 @@ public class FontFamily implements Iterable<Font> {
         return name;
     }
 
-    @Override
-    public Iterator<Font> iterator() {
-        return styles.iterator();
-    }
 }

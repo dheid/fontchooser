@@ -21,18 +21,6 @@ for a font and insert their own preview text.
 * Well documented with Javadoc
 * No dependencies
 
-## :dancers: Cross Platform
-![Font Chooser (Cross Platform)](fontchooser-metallookandfeel.png "Font Chooser (Cross Platform)")
-
-## :penguin: GTK / Linux
-![Font Chooser (GTK)](fontchooser-gtklookandfeel.png "Font Chooser (GTK)")
-
-## :apple: Aqua / Mac
-![Font Chooser (Aqua)](fontchooser-aqualookandfeel.png "Font Chooser (Aqua)")
-
-## :office: Windows
-![Font Chooser (Windows)](fontchooser-windowslookandfeel.png "Font Chooser (Windows)")
-
 There are translations for the following languages:
 
 * English
@@ -47,6 +35,43 @@ There are translations for the following languages:
 
 Font Chooser is an open source project and completely free. I appreciate improvements or extensions. Please contact
 me if you have questions.
+
+## Screenshots
+
+## :dancers: Cross Platform
+![Font Chooser (Cross Platform)](screenshots/fontchooser-metallookandfeel.png "Font Chooser (Cross Platform)")
+
+## :penguin: GTK / Linux
+![Font Chooser (GTK)](screenshots/fontchooser-gtklookandfeel.png "Font Chooser (GTK)")
+
+## :apple: Aqua / Mac
+![Font Chooser (Aqua)](screenshots/fontchooser-aqualookandfeel.png "Font Chooser (Aqua)")
+
+## :office: Windows
+![Font Chooser (Windows)](screenshots/fontchooser-windowslookandfeel.png "Font Chooser (Windows)")
+
+## :heart: Third party look and feels
+
+![Font Chooser (Cross Platform)](screenshots/fontchooser-acryllookandfeel.png "Font Chooser (Cross Platform)")
+![Font Choooser (acryllookandfeel)](screenshots/fontchooser-acryllookandfeel.png "Font Chooser(acryllookandfeel)")
+![Font Choooser (aerolookandfeel)](screenshots/fontchooser-aerolookandfeel.png "Font Chooser(aerolookandfeel)")
+![Font Choooser (bernsteinlookandfeel)](screenshots/fontchooser-bernsteinlookandfeel.png "Font Chooser(bernsteinlookandfeel)")
+![Font Choooser (darklaf)](screenshots/fontchooser-darklaf.png "Font Chooser(darklaf)")
+![Font Choooser (fastlookandfeel)](screenshots/fontchooser-fastlookandfeel.png "Font Chooser(fastlookandfeel)")
+![Font Choooser (flatdarculalaf)](screenshots/fontchooser-flatdarculalaf.png "Font Chooser(flatdarculalaf)")
+![Font Choooser (flatdarklaf)](screenshots/fontchooser-flatdarklaf.png "Font Chooser(flatdarklaf)")
+![Font Choooser (flatintellijlaf)](screenshots/fontchooser-flatintellijlaf.png "Font Chooser(flatintellijlaf)")
+![Font Choooser (flatlightlaf)](screenshots/fontchooser-flatlightlaf.png "Font Chooser(flatlightlaf)")
+![Font Choooser (graphitelookandfeel)](screenshots/fontchooser-graphitelookandfeel.png "Font Chooser(graphitelookandfeel)")
+![Font Choooser (hifilookandfeel)](screenshots/fontchooser-hifilookandfeel.png "Font Chooser(hifilookandfeel)")
+![Font Choooser (lunalookandfeel)](screenshots/fontchooser-lunalookandfeel.png "Font Chooser(lunalookandfeel)")
+![Font Choooser (mcwinlookandfeel)](screenshots/fontchooser-mcwinlookandfeel.png "Font Chooser(mcwinlookandfeel)")
+![Font Choooser (mintlookandfeel)](screenshots/fontchooser-mintlookandfeel.png "Font Chooser(mintlookandfeel)")
+![Font Choooser (motiflookandfeel)](screenshots/fontchooser-motiflookandfeel.png "Font Chooser(motiflookandfeel)")
+![Font Choooser (nimbuslookandfeel)](screenshots/fontchooser-nimbuslookandfeel.png "Font Chooser(nimbuslookandfeel)")
+![Font Choooser (noirelookandfeel)](screenshots/fontchooser-noirelookandfeel.png "Font Chooser(noirelookandfeel)")
+![Font Choooser (smartlookandfeel)](screenshots/fontchooser-smartlookandfeel.png "Font Chooser(smartlookandfeel)")
+![Font Choooser (texturelookandfeel)](screenshots/fontchooser-texturelookandfeel.png "Font Chooser(texturelookandfeel)")
 
 ## :wrench: Usage
 
@@ -148,6 +173,8 @@ https://www.gnu.org/licenses/lgpl-3.0.en.html
 ### 2.5.2
 
 This version supports [Darklaf](https://github.com/weisJ/darklaf) now.
+
+Styles do not include family name any longer.
 
 ### 2.5.1
 

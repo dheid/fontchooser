@@ -19,9 +19,9 @@ public class StylePane extends JScrollPane implements ChangeListener {
 
     private static final long serialVersionUID = -176731082795772255L;
 
-    private final JList<String> styleList = new JList<>();
+    private final JList<Font> styleList = new JList<>();
 
-    private final DefaultListModel<String> styleListModel;
+    private final DefaultListModel<Font> styleListModel;
 
     private String family;
 
@@ -30,7 +30,7 @@ public class StylePane extends JScrollPane implements ChangeListener {
         styleListModel = new DefaultListModel<>();
         styleList.setModel(styleListModel);
         styleList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        styleList.setCellRenderer(new ToolTipCellRenderer());
+        styleList.setCellRenderer(new StyleCellRenderer());
 
         setMinimumSize(new Dimension(140, 50));
         setPreferredSize(new Dimension(160, 100));
@@ -46,23 +46,19 @@ public class StylePane extends JScrollPane implements ChangeListener {
         styleList.removeListSelectionListener(listener);
     }
 
-    public void setSelectedStyle(String name) {
-        styleList.setSelectedValue(name, true);
+    public void setSelectedStyle(Font font) {
+        styleList.setSelectedValue(font, true);
     }
 
-    public String getSelectedStyle() {
+    public Font getSelectedStyle() {
         return styleList.getSelectedValue();
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-
         FontSelectionModel fontSelectionModel = (FontSelectionModel) e.getSource();
         Font selectedFont = fontSelectionModel.getSelectedFont();
-        String family = selectedFont.getFamily();
-
-        loadFamily(family);
-
+        loadFamily(selectedFont.getFamily());
     }
 
     public void loadFamily(String family) {
@@ -78,7 +74,7 @@ public class StylePane extends JScrollPane implements ChangeListener {
         if (fontFamily != null) {
             ListSelectionListener[] selectionListeners = styleList.getListSelectionListeners();
             removeSelectionListeners(selectionListeners);
-            updateListModel(fontFamily);
+            updateListModel(fontFamily.getStyles());
             addSelectionListeners(selectionListeners);
         }
 
@@ -86,9 +82,8 @@ public class StylePane extends JScrollPane implements ChangeListener {
 
     private void updateListModel(Iterable<Font> fonts) {
         styleListModel.clear();
-
         for (Font font : fonts) {
-            styleListModel.addElement(font.getName());
+            styleListModel.addElement(font);
         }
     }
 

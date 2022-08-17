@@ -200,7 +200,7 @@ public class FontChooser extends JPanel implements FontContainer {
         familyPane.addListSelectionListener(familyPaneListener);
 
         stylePane.loadFamily(selectionModel.getSelectedFontFamily());
-        stylePane.setSelectedStyle(selectionModel.getSelectedFontName());
+        stylePane.setSelectedStyle(selectionModel.getSelectedFont());
         stylePane.addListSelectionListener(stylePaneListener);
 
         sizePane.addListSelectionListener(sizePaneListener);
@@ -307,7 +307,7 @@ public class FontChooser extends JPanel implements FontContainer {
 
     @Override
     public String getSelectedStyle() {
-        return stylePane.getSelectedStyle();
+        return stylePane.getSelectedStyle().getName();
     }
 
     @Override

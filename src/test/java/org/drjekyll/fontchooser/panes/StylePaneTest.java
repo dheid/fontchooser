@@ -84,7 +84,7 @@ public class StylePaneTest {
         givenListSelectionListener();
 
         whenStateChanged();
-        stylePane.setSelectedStyle(family.iterator().next().getName());
+        stylePane.setSelectedStyle(family.getStyles().iterator().next());
 
         thenGetsSource();
         thenGetsSelectedFont();
