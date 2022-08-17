@@ -52,7 +52,6 @@ me if you have questions.
 
 ## :heart: Third party look and feels
 
-![Font Chooser (Cross Platform)](screenshots/fontchooser-acryllookandfeel.png "Font Chooser (Cross Platform)")
 ![Font Choooser (acryllookandfeel)](screenshots/fontchooser-acryllookandfeel.png "Font Chooser(acryllookandfeel)")
 ![Font Choooser (aerolookandfeel)](screenshots/fontchooser-aerolookandfeel.png "Font Chooser(aerolookandfeel)")
 ![Font Choooser (bernsteinlookandfeel)](screenshots/fontchooser-bernsteinlookandfeel.png "Font Chooser(bernsteinlookandfeel)")
