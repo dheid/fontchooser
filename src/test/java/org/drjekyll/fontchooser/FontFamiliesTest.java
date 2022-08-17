@@ -43,7 +43,7 @@ public class FontFamiliesTest {
 
         FontFamily fontFamily = fontFamilies.get(FAMILY);
         assertThat(fontFamily.getName()).isEqualTo(FAMILY);
-        for (Font font : fontFamily) {
+        for (Font font : fontFamily.getStyles()) {
             assertThat(font).isEqualTo(this.font);
         }
 
