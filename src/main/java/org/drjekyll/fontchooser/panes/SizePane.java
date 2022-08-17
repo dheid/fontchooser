@@ -14,7 +14,9 @@ import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.UIResource;
 
 public class SizePane extends JPanel {
 
@@ -79,7 +81,10 @@ public class SizePane extends JPanel {
     private static void setupSpinnerEditor(JSpinner spinner) {
         JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) spinner.getEditor();
         JFormattedTextField textField = editor.getTextField();
-        textField.setBorder(BorderWrapper.makeNonUIResource(new JScrollPane().getBorder()));
+        Border border = new JScrollPane().getBorder();
+        if (border != null && !(border instanceof UIResource)) {
+            textField.setBorder(border);
+        }
     }
 
     private void initSizeList() {

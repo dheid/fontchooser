@@ -7,7 +7,7 @@ import org.drjekyll.fontchooser.FontDialog;
 public class DialogExample implements Runnable {
 
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-        ExampleRunner.useLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        ExampleRunner.useLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         ExampleRunner.invoke(new DialogExample());
     }
 
