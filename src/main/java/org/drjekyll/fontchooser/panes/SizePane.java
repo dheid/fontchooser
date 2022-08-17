@@ -62,9 +62,7 @@ public class SizePane extends JPanel {
         int spinnerHeight = (int) sizeSpinner.getPreferredSize().getHeight();
         sizeSpinner.setPreferredSize(new Dimension(60, spinnerHeight));
         sizeSpinner.setModel(new SpinnerNumberModel(12, 6, 128, 1));
-        JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) sizeSpinner.getEditor();
-        JFormattedTextField textField = editor.getTextField();
-        textField.setBorder(new JScrollPane().getBorder());
+        setupSpinnerEditor(sizeSpinner);
         sizeSpinner.addChangeListener(event -> {
 
             Integer value = (Integer) sizeSpinner.getValue();
@@ -76,6 +74,12 @@ public class SizePane extends JPanel {
             }
 
         });
+    }
+
+    private void setupSpinnerEditor(JSpinner spinner) {
+        JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) spinner.getEditor();
+        JFormattedTextField textField = editor.getTextField();
+        textField.setBorder(BorderWrapper.makeNonUIResource(new JScrollPane().getBorder()));
     }
 
     private void initSizeList() {
@@ -105,6 +109,14 @@ public class SizePane extends JPanel {
             }
             size += step;
         } while (size <= 128);
+    }
+
+    @Override
+    public void updateUI() {
+        super.updateUI();
+        if (sizeSpinner != null){
+            setupSpinnerEditor(sizeSpinner);
+        }
     }
 
     public void addListSelectionListener(ListSelectionListener listener) {
