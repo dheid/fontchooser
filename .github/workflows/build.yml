@@ -19,5 +19,10 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
           cache: maven
-      - run: mvn -B verify
-
+      - uses: GabrielBB/xvfb-action@v1
+        with:
+          run: mvn -B verify
+      - uses: madrapps/jacoco-report@v1.2
+        with:
+          paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
