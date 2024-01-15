@@ -91,7 +91,7 @@
       <artifactId>mockito-junit-jupiter</artifactId>
       <groupId>org.mockito</groupId>
       <scope>test</scope>
-      <version>5.8.0</version>
+      <version>5.9.0</version>
     </dependency>
   </dependencies>
   <build>
