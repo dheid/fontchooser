@@ -74,7 +74,7 @@
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
       <scope>provided</scope>
-      <version>1.18.30</version>
+      <version>1.18.32</version>
     </dependency>
     <dependency>
       <artifactId>junit-jupiter</artifactId>
