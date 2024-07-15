@@ -169,6 +169,10 @@ https://www.gnu.org/licenses/lgpl-3.0.en.html
 
 ## :loudspeaker: Release Notes
 
+### 3.0.0
+
+This version needs at least Java 11 to run. Updated a 
+
 ### 2.5.2
 
 This version supports [Darklaf](https://github.com/weisJ/darklaf) now.

@@ -5,7 +5,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 
-import java.awt.Font;
+import java.awt.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -34,6 +34,15 @@ public class StylePaneTest {
 
     @Mock
     private ListSelectionListener listSelectionListener;
+
+    @Mock
+    private Component objectLock;
+
+    @Mock
+    private Object aaHint;
+
+    @Mock
+    private Object lcdRenderingHint;
 
     @InjectMocks
     private StylePane stylePane;
