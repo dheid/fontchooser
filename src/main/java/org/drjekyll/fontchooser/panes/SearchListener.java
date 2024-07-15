@@ -1,18 +1,17 @@
 package org.drjekyll.fontchooser.panes;
 
+import lombok.RequiredArgsConstructor;
+import org.drjekyll.fontchooser.model.FamilyListModel;
+
+import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Collection;
 import java.util.Locale;
-import java.util.Optional;
-import java.util.TreeSet;
-import javax.swing.JTextField;
-import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class SearchListener extends KeyAdapter {
 
-    private final Collection<String> fontFamilyNames = new TreeSet<>();
+    private final FamilyListModel familyListModel;
 
     private final FamilyPane familyPane;
 
@@ -20,11 +19,7 @@ public class SearchListener extends KeyAdapter {
     public void keyTyped(KeyEvent e) {
         JTextField searchField = (JTextField) e.getSource();
         String searchString = searchField.getText().toLowerCase(Locale.ENGLISH);
-        Optional<String> first = fontFamilyNames.stream().filter(family -> family.toLowerCase(Locale.ENGLISH).contains(searchString)).findFirst();
-        first.ifPresent(familyPane::setSelectedFamily);
+        familyListModel.findFirst(searchString).ifPresent(familyPane::setSelectedFamily);
     }
 
-    public void addFamilyName(String name) {
-        fontFamilyNames.add(name);
-    }
 }

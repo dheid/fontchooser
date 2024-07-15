@@ -80,20 +80,20 @@ Include the following dependency to your project:
 <dependency>
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.5.2</version>
+    <version>3.0.1</version>
  </dependency>
 ```
 
 or Gradle with Groovy DSL:
 
 ```groovy
-implementation 'org.drjekyll:fontchooser:2.5.2'
+implementation 'org.drjekyll:fontchooser:3.0.1'
 ```
 
 or Gradle with Kotlin DSL:
 
 ```kotlin
-implementation("org.drjekyll:fontchooser:2.5.2")
+implementation("org.drjekyll:fontchooser:3.0.1")
 ```
 
 If you want to apply a font to a specific component, e.g. a text area, simply use
@@ -134,20 +134,20 @@ This will install the version to your local repository. You can now include it:
 <dependency>
     <groupId>org.drjekyll</groupId>
     <artifactId>fontchooser</artifactId>
-    <version>2.5.3-SNAPSHOT</version>
+    <version>3.0.2-SNAPSHOT</version>
  </dependency>
 ```
 
 or Gradle with Groovy DSL:
 
 ```groovy
-implementation 'org.drjekyll:fontchooser:2.5.3-SNAPSHOT'
+implementation 'org.drjekyll:fontchooser:3.0.2-SNAPSHOT'
 ```
 
 or Gradle with Kotlin DSL:
 
 ```kotlin
-implementation("org.drjekyll:fontchooser:2.5.3-SNAPSHOT")
+implementation("org.drjekyll:fontchooser:3.0.2-SNAPSHOT")
 ```
 
 ## :handshake: Contributing and Credits
@@ -173,7 +173,7 @@ https://www.gnu.org/licenses/lgpl-3.0.en.html
 
 This version needs at least Java 11 to run. Updated a 
 
-### 2.5.2
+### 3.0.1
 
 This version supports [Darklaf](https://github.com/weisJ/darklaf) now.
 

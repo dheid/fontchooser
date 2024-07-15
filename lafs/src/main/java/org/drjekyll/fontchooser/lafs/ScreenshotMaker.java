@@ -1,5 +1,11 @@
 package org.drjekyll.fontchooser.lafs;
 
+import org.drjekyll.fontchooser.FontChooser;
+
+import javax.imageio.ImageIO;
+import javax.swing.CellRendererPane;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -12,11 +18,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.CellRendererPane;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
-import org.drjekyll.fontchooser.FontChooser;
 
 public class ScreenshotMaker {
 
@@ -88,7 +89,7 @@ public class ScreenshotMaker {
                 rendererPane.paintComponent(graphics, fontChooser, rendererPane, fontChooser.getBounds());
 
                 String[] nameParts = lookAndFeelClassName.split("\\.");
-                ImageIO.write(image, "png", new File("screenshots", "fontchooser-%s.png".formatted(nameParts[nameParts.length - 1].toLowerCase(Locale.ENGLISH))));
+                ImageIO.write(image, "png", new File("screenshots", String.format("fontchooser-%s.png", nameParts[nameParts.length - 1].toLowerCase(Locale.ENGLISH))));
             } catch (Exception e) {
                 log.log(Level.WARNING, "Could not create screenshot", e);
             }

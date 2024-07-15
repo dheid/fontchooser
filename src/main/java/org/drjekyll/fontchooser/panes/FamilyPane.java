@@ -1,10 +1,10 @@
 package org.drjekyll.fontchooser.panes;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.DefaultListModel;
+import org.drjekyll.fontchooser.listeners.MonospacedListener;
+import org.drjekyll.fontchooser.model.FamilyListModel;
+
+import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -12,8 +12,10 @@ import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
-import org.drjekyll.fontchooser.FontFamilies;
-import org.drjekyll.fontchooser.FontFamily;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
 
 public class FamilyPane extends JPanel {
@@ -24,24 +26,24 @@ public class FamilyPane extends JPanel {
 
     private final SearchListener searchListener;
 
+    private final JCheckBox monospacedCheckBox = new JCheckBox();
+
+    private final MonospacedListener monospacedListener;
+
     public FamilyPane() {
 
-        DefaultListModel<String> familyListModel = new DefaultListModel<>();
-        FontFamilies fontFamilies = FontFamilies.getInstance();
-        searchListener = new SearchListener(this);
-        for (FontFamily fontFamily : fontFamilies) {
-            String name = fontFamily.getName();
-            familyListModel.addElement(name);
-            searchListener.addFamilyName(name);
-        }
+        FamilyListModel familyListModel = new FamilyListModel(this);
+        searchListener = new SearchListener(familyListModel, this);
 
         initializeList(familyListModel);
+        monospacedListener = new MonospacedListener(familyListModel);
 
         setMinimumSize(new Dimension(80, 50));
-        setPreferredSize(new Dimension(240, 100));
+        setPreferredSize(new Dimension(240, 160));
 
         setLayout(new GridBagLayout());
         addSearchField();
+        addMonospacedCheckBox();
         addScrollPane();
     }
 
@@ -58,10 +60,21 @@ public class FamilyPane extends JPanel {
         gridBagConstraints.weightx = 1.0;
 
         JTextField searchField = new JTextField();
-        searchField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        searchField.setBorder(BorderFactory.createEmptyBorder());
         searchField.requestFocus();
         searchField.addKeyListener(searchListener);
         add(new JScrollPane(searchField), gridBagConstraints);
+    }
+
+    private void addMonospacedCheckBox() {
+        monospacedCheckBox.setText("Monospaced only");
+        monospacedCheckBox.setDisplayedMnemonicIndex(0);
+        monospacedCheckBox.addItemListener(monospacedListener);
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        add(monospacedCheckBox, gridBagConstraints);
     }
 
     private void addScrollPane() {

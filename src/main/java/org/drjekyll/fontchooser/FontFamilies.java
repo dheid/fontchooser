@@ -1,11 +1,12 @@
 package org.drjekyll.fontchooser;
 
 import java.awt.Font;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class FontFamilies implements Iterable<FontFamily> {
+public class FontFamilies implements Iterable<FontFamily>, Serializable {
 
     private static final FontFamilies INSTANCE = createFontFamilies();
 
@@ -32,5 +33,9 @@ public class FontFamilies implements Iterable<FontFamily> {
 
     public FontFamily get(String name) {
         return families.get(name);
+    }
+
+    public int size() {
+        return families.size();
     }
 }

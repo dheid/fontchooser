@@ -1,16 +1,20 @@
 package org.drjekyll.fontchooser.panes;
 
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
-
-import java.awt.event.KeyEvent;
-import javax.swing.JTextField;
+import org.drjekyll.fontchooser.model.FamilyListModel;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import javax.swing.JTextField;
+import java.awt.event.KeyEvent;
+import java.util.Locale;
+import java.util.Optional;
+
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 
 @ExtendWith(MockitoExtension.class)
 public class SearchListenerTest {
@@ -21,6 +25,9 @@ public class SearchListenerTest {
 
     @Mock
     private FamilyPane familyPane;
+
+    @Mock
+    private FamilyListModel familyListModel;
 
     @Mock
     private KeyEvent keyEvent;
@@ -36,7 +43,6 @@ public class SearchListenerTest {
 
         givenSourceIsTextField();
         givenText(TEXT);
-        givenFamilyName(FAMILY_NAME);
 
         whenKeyTyped();
 
@@ -66,7 +72,7 @@ public class SearchListenerTest {
     }
 
     private void givenFamilyName(String familyName) {
-        searchListener.addFamilyName(familyName);
+        given(familyListModel.findFirst(familyName.toLowerCase(Locale.ENGLISH))).willReturn(Optional.of(familyName));
     }
 
     private void givenText(String text) {
