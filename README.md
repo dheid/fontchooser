@@ -169,9 +169,13 @@ https://www.gnu.org/licenses/lgpl-3.0.en.html
 
 ## :loudspeaker: Release Notes
 
+### 3.1.0
+
+Includes a check box to show only monospaced fonts
+
 ### 3.0.0
 
-This version needs at least Java 11 to run. Updated a 
+This version needs at least Java 11 to run.
 
 ### 3.0.1
 
