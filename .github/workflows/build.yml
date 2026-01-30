@@ -19,7 +19,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
-      - uses: GabrielBB/xvfb-action@v1
+      - uses: GabrielBB/xvfb-action@v1.7
         with:
           run: mvn -B verify
       - uses: madrapps/jacoco-report@v1.6
