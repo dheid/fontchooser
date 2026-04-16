@@ -101,7 +101,7 @@
       <artifactId>mockito-junit-jupiter</artifactId>
       <groupId>org.mockito</groupId>
       <scope>test</scope>
-      <version>5.21.0</version>
+      <version>5.23.0</version>
     </dependency>
   </dependencies>
   <build>
