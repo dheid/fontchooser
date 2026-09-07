@@ -449,7 +449,7 @@
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
       <scope>provided</scope>
-      <version>1.18.46</version>
+      <version>1.18.48</version>
     </dependency>
     <dependency>
       <artifactId>junit-jupiter</artifactId>
